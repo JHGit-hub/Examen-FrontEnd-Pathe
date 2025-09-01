@@ -1,0 +1,15 @@
+@use '../abstracts/colors' as *;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-weight: normal;
+    text-decoration: none;
+   }
+   
+html{
+    font-size: 16px;
+    background-color: $bckgrd-color;
+}
+

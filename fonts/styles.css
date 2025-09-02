@@ -32,3 +32,8 @@
     font-family: "hetpta";
     src: url(HeptaSlab-Bold.ttf);
 }
+
+@font-face {
+    font-family: 'heebo-light';
+    src: url(Heebo-Light.ttf);
+}

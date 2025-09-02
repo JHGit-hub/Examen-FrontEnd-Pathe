@@ -1,0 +1,9 @@
+@use '../abstracts/colors' as *;
+@use '../abstracts/variables' as *;
+
+@mixin display-flex($flex-direction, $justify-content, $aligns-items){
+    display:flex;
+    flex-direction: $flex-direction;
+    justify-content: $justify-content;
+    align-items: $aligns-items;
+}

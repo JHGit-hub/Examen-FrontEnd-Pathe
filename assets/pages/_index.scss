@@ -1,0 +1,24 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/colors' as *;
+
+
+.container-fluid {
+    width: 100%;
+    padding: 2.75rem 3.75rem;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.overlay-homepage{
+    position: relative;
+    z-index: 2;
+    .title-banner {
+        @include display-flex(column, center, flex-start);
+        margin-top: 13.5rem;
+        gap: 4.875rem;
+        width: 52%;
+    }
+}
+

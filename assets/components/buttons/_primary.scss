@@ -1,0 +1,22 @@
+@use '../../abstracts/colors' as *;
+@use '../../abstracts/typography' as *;
+@use '../../abstracts/mixins' as *;
+
+
+.primary-btn{
+    @include display-flex(row, center, center);
+    font-family: "heebo-medium";
+    font-size:1.3125rem;
+    color: #0C0C0C;
+    background-color: $primary-color;
+    border-radius: 15px;
+    padding: 1rem 5rem;
+    gap: 1rem;
+    margin-left: 0.625rem;
+    border: solid 1px;
+    img{
+        width:22px;
+        height:22px;
+        transform: rotate(315deg);
+    }
+}

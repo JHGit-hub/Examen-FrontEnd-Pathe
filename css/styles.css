@@ -50,6 +50,10 @@ p {
   color: #ffffff;
 }
 
+a {
+  text-decoration: none;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -61,6 +65,32 @@ p {
 html {
   font-size: 16px;
   background-color: #000000;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.container {
+  width: 89%;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
 }
 
 .primary-btn {
@@ -86,6 +116,163 @@ html {
 
 .primary-btn:hover {
   box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+.back-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-family: "heebo-medium";
+  font-size: 1.23rem;
+  color: #ffffff;
+  background-color: #1C2129;
+  border-radius: 6px;
+  padding: 0.5rem 1.5rem;
+  border: solid 1px #1C2129;
+}
+.back-btn a {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: #ffffff;
+  font-family: "heebo-medium";
+  font-size: 0.875rem;
+}
+.back-btn img {
+  width: 11px;
+  height: 11px;
+  transform: rotate(180deg);
+}
+
+.movie-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+}
+.movie-card .movie-img img {
+  width: 60px;
+  height: 80px;
+}
+.movie-card .movie-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.movie-card .movie-text .title-movie h3 {
+  font-family: "heebo-regular";
+  font-size: 1.25rem;
+  color: #ffffff;
+}
+.movie-card .movie-text .detail-movie {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.7rem;
+  font-family: "heebo-semibold";
+  font-size: 0.75rem;
+}
+.movie-card .movie-text .detail-movie p {
+  color: #7f7f7f;
+}
+.movie-card .movie-text .detail-movie .age-mini {
+  display: flex;
+  align-items: center;
+}
+.movie-card .movie-text .detail-movie .age-mini img {
+  width: 18px;
+}
+.movie-card .movie-text .detail-movie .violence-alert {
+  display: flex;
+  align-items: center;
+}
+.movie-card .movie-text .detail-movie .violence-alert img {
+  width: 24px;
+}
+
+.scary-alert {
+  background-color: #ffffff;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+.scary-alert p {
+  color: #000000;
+}
+
+.new-alert {
+  background-color: #E20505;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+
+.showtime-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.showtime-row .showtime-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: stretch;
+  width: 158px;
+  height: 104px;
+  border-radius: 15px;
+  background-color: #202020;
+  padding: 0rem 1rem;
+}
+.showtime-row .showtime-card .movie-format img {
+  width: 30px;
+}
+.showtime-row .showtime-card .detail-showtime {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.showtime-row .showtime-card .detail-showtime .schedule {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+}
+.showtime-row .showtime-card .detail-showtime .schedule p {
+  font-family: "heebo-regular";
+  font-size: 1.625rem;
+}
+.showtime-row .showtime-card .detail-showtime .schedule p, .showtime-row .showtime-card .detail-showtime .schedule span {
+  color: #ffffff;
+}
+.showtime-row .showtime-card .detail-showtime .schedule span {
+  margin-bottom: 0.5rem;
+  color: #7f7f7f;
+  font-size: 0.8rem;
+}
+.showtime-row .showtime-card .detail-showtime .handicap img {
+  width: 14px;
+}
+
+.breadcrumb {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.breadcrumb a {
+  font-family: "heebo-medium";
+  font-size: 0.75rem;
+  color: #ffffff;
 }
 
 .slider {
@@ -124,6 +311,25 @@ html {
   margin-top: 13.5rem;
   gap: 4.875rem;
   width: 52%;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: #ffffff;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.movie-row {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1rem;
+  margin: 4rem 0;
 }
 
 /*# sourceMappingURL=styles.css.map */

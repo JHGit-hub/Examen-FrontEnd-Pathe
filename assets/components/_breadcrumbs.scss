@@ -6,6 +6,7 @@
 
 .breadcrumb{
     @include display-flex (row, center, flex-start);
+    gap:1rem;
     a{
         font-family: "heebo-medium";
         font-size: 0.75rem;

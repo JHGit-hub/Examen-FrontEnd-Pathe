@@ -1,0 +1,65 @@
+@use '../../abstracts/colors' as *;
+@use '../../abstracts/typography' as *;
+@use '../../abstracts/mixins' as *;
+
+.movie-card {
+    @include display-flex(row, center, center);
+    gap: 0.625rem;
+
+    .movie-img img {
+        width: 60px;
+        height: 80px;
+    }
+
+    .movie-text {
+        @include display-flex(column, center, flex-start);
+
+        .title-movie h3 {
+            font-family: "heebo-regular";
+            font-size: 1.25rem;
+            color: #ffffff;
+        }
+
+        .detail-movie {
+            @include display-flex(row, center, center);
+            gap: 0.7rem;
+            font-family: "heebo-semibold";
+            font-size: 0.75rem;
+            p{
+                color: #7f7f7f;
+            }
+
+            .age-mini {
+                display: flex;
+                align-items: center;
+
+                img {
+                    width: 18px;
+                }
+            }
+            .violence-alert {
+                display: flex;
+                align-items: center;
+
+                img {
+                    width: 24px;
+                }
+            }
+        }
+    }
+}
+
+.scary-alert {
+    background-color: #ffffff;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    p {
+        color: #000000;
+    }
+}
+
+.new-alert {
+    background-color: #E20505;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+}

@@ -19,9 +19,10 @@
 //  Import buttons
 @use "components/buttons/primary";
 @use "components/buttons/secondary";
-@use "components/buttons/switch";
+@use "components/buttons/back-btn";
 //  Import cards
-@use "components/cards/plan-card";
+@use "components/cards/movie-card";
+@use "components/cards/showtime-card";
 //  Import modals
 @use "components/modals/modal";
 //  Import others
@@ -34,7 +35,7 @@
 //  Import des pages spécifiques
 @use "pages/index";
 @use "pages/about";
-@use "pages/contact";
+@use "pages/showtime";
 @use "pages/blog";
 @use "pages/page-404";
 //  Import des thèmes

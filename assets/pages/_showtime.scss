@@ -1,0 +1,19 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/colors' as *;
+
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: #ffffff;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.movie-row{
+    @include display-flex(column, center, flex-start);
+    gap: 1rem;
+    margin: 4rem 0;
+}

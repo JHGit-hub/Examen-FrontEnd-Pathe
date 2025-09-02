@@ -1,0 +1,44 @@
+@use '../../abstracts/colors' as *;
+@use '../../abstracts/typography' as *;
+@use '../../abstracts/mixins' as *;
+
+.showtime-row{
+    @include display-flex(row, flex-start, center);
+    flex-wrap: wrap;
+    gap:0.5rem;
+    .showtime-card{
+        @include display-flex(column, flex-end, stretch);
+        width:158px;
+        height:104px;
+        border-radius: 15px;
+        background-color: #202020;
+        padding: 0rem 1rem;
+        .movie-format img{
+            width: 30px;
+        }
+        .detail-showtime {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-direction: row;
+            .schedule{
+                @include display-flex(row, center, flex-end);
+                p{
+                    font-family: "heebo-regular";
+                    font-size: 1.625rem;
+                }
+                p, span {
+                    color: #ffffff;
+                }
+                span{
+                    margin-bottom: 0.5rem;
+                    color: #7f7f7f;
+                    font-size: 0.8rem;
+                }
+            }
+            .handicap img{
+                width: 14px;
+            }
+        }
+    }
+}

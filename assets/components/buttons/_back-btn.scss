@@ -1,0 +1,19 @@
+@use '../../abstracts/colors' as *;
+@use '../../abstracts/typography' as *;
+@use '../../abstracts/mixins' as *;
+
+
+.back-btn{
+    @include display-flex(row, center, center);
+    font-family: "heebo-medium";
+    font-size:1.23rem;
+    color: #ffffff;
+    background-color: #1C2129;
+    border-radius: 6px;
+    padding: 0.875rem 1.875rem;
+    border: solid 1px;
+    img{
+        width: 11px;
+        height: 11px;
+    }
+}

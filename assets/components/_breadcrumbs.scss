@@ -1,0 +1,14 @@
+@use '../abstracts/colors' as *;
+@use '../abstracts/typography' as *;
+@use '../abstracts/mixins' as *;
+
+
+
+.breadcrumb{
+    @include display-flex (row, center, flex-start);
+    a{
+        font-family: "heebo-medium";
+        font-size: 0.75rem;
+        color: #ffffff;
+    }
+}

@@ -17,8 +17,8 @@
 @use "layout/sidebar";
 //  Import des composants
 //  Import buttons
-@use "components/buttons/primary";
-@use "components/buttons/secondary";
+@use "components/buttons/primary-btn";
+@use "components/buttons/secondary-btn";
 @use "components/buttons/back-btn";
 @use "components/buttons/filter-btn";
 @use "components/buttons/backtotop-btn";
@@ -28,7 +28,7 @@
 //  Import modals
 @use "components/modals/modal";
 //  Import others
-@use "components/alerts";
+@use "components/pointer";
 @use "components/badges";
 @use "components/breadcrumbs";
 @use "components/carousel";
@@ -38,7 +38,7 @@
 @use "pages/index";
 @use "pages/about";
 @use "pages/showtime";
-@use "pages/blog";
+@use "pages/seat-selection";
 @use "pages/page-404";
 //  Import des thèmes
 @use "themes/light";

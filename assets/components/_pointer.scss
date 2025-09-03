@@ -1,0 +1,17 @@
+@use '../abstracts/colors' as *;
+@use '../abstracts/typography' as *;
+@use '../abstracts/mixins' as *;
+
+
+#pointer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle,  rgba(255,255,255,0.20) 0%, rgba(120,120,120,0.10) 60%, rgba(0,0,0,0) 100%); // dégradé blanc vers noir
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    pointer-events: none; // pour cliquer sur la page et pas le disque
+}

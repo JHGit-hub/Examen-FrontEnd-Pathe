@@ -1,0 +1,163 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/colors' as *;
+
+
+.block{
+    display:flex;
+    height:100vh;
+}
+
+.block-movie-selected{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    width: 44%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    gap:3rem;
+    .logo-block, #showtime-resume-title, #showtime-resume-detail{
+        z-index: 100;
+    }
+    #showtime-resume-image {
+        width: 30%;
+        height: auto;
+        z-index: 100;
+        img{
+            width:100%;
+        }
+    }
+    .showtime-resume-description{
+        @include display-flex(column, center, center);
+        gap:1rem;
+        z-index: 100;
+        .showtime-resume-detail {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            #showtime-resume-schedule {
+                p{
+                    font-family:"heebo-medium";
+                    font-size: 1rem;
+                    color: #ffffff;
+                }
+                span{
+                    font-family:"heebo-medium";
+                    font-size: 0.625rem;
+                    color: #b3b3b3;
+                }
+
+            }
+        }
+    }
+}
+
+.block-selection{
+    width: 56%;
+    background-color: #F0F0F0;
+    height:100vh;
+    z-index:100;
+    .header-block{
+        @include display-flex(row, space-between, center);
+        padding: 1rem 2rem;
+        border-bottom: 1px solid #eeeeee;
+        padding: 1.875rem;
+        padding-bottom: 0rem;
+        #auditorium{
+            @include display-flex(row, center, center);
+            gap:0.5rem;
+            p{
+                font-family: "heebo-medium";
+                font-size:1rem;
+                color: $dark-color;
+            }
+            img{
+                width:13px;
+            }
+        }
+        .back-btn{
+            background-color: $dark-color;
+        }
+
+    }
+    .body-block{
+        @include display-flex(column, flex-end, center);
+        height: 94%;
+        gap: 2rem;
+        #free-seats p{
+            font-family: "heebo-regular";
+            font-size: 1rem;
+            color: #666666;
+        }
+        .screen{
+            @include display-flex(row, space-between, center);
+            width:85%;
+            height: 30px;
+            .screen-bar{
+                width:39%;
+                height:10px;
+                background-color: #DAA846;
+            }
+            p{
+                font-family: "heebo-bold";
+                font-size: 1.25rem;
+                color: #DAA846;
+            }
+
+        }
+        .seat-information{
+            @include display-flex(row, flex-start, center);
+            width:85%;
+            .seat-legend{
+                @include display-flex(row, center, center);
+                gap: 2rem;
+                height: 54px;
+                .seat-picto{
+                    @include display-flex(row, center, center);
+                    gap:0.5rem;
+                    span{
+                        font-family:"heebo-medium";
+                        font-size: 0.75rem;
+                        color: $dark-color;
+                    }
+                    img {
+                        width:25px;
+                    }
+                }
+            }
+        }
+
+        .make-reservation{
+            @include display-flex(row, center, center);
+            gap: 1rem;
+            height:66px;
+            background-color: $primary-color;
+            width:100%;
+            p{
+                font-family:"heebo-extrabold";
+                font-size: 1.25rem;
+                color: #181818;
+            }
+            img{
+                width: 34px;
+            }
+        }
+
+    }
+}
+
+
+
+.opacity-filter {
+    background-color: #000000;
+    /* width: 500px; */
+    height: 100vh;
+    opacity: 0.6;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+}
+

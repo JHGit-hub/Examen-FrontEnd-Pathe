@@ -102,7 +102,7 @@ fetch('../films.json')
                 }
 
                 //  title -> titre du film -> inclus dans divMovieText
-                title.push(document.createElement('h3'));
+                title.push(document.createElement('h2'));
                 title[k].className = "title-movie";
                 title[k].textContent = `${list[k].titre}`;
 
@@ -291,9 +291,10 @@ fetch('../films.json')
 
             // On stocke dans le localStorage
             if(movieReservation && showtimeReservation){
-                localStorage.setItem("reservation", JSON.stringify({ // converti en JSON
-                    film: movieReservation,
-                    seance: showtimeReservation
+                localStorage.setItem("movieSelected", JSON.stringify({ // converti en JSON
+                    title: movieReservation.titre,
+                    image: movieReservation.image,
+                    showtime: showtimeReservation
                 }));
                 // on ouvre la page suivante
                 window.location.href = "seat_selection.html";
@@ -303,6 +304,19 @@ fetch('../films.json')
         }
         
         
+        ////// animation au pointeur
+        // On récupére le pointer dans le DOM
+        const pointer = document.getElementById('pointer');
+        document.addEventListener("mousemove", (event) => {
+            // on récupére la position de la souris en temps réel
+            let posX = event.clientX; // position du pointeur sur la fenetre
+            let posY = event.clientY;
+            // on modifie la position de "pointer" en fonction de la position de la souris
+            pointer.style.left = posX + "px";
+            pointer.style.top = posY + "px";
+        });
+
+
 
 
         // écoute des changements sur les filtres

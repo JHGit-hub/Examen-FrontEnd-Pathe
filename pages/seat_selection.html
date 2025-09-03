@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page du choix des places de cinéma</title>
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <meta name="description"
+        content="Réserver des emplacements pour votre séance de cinéma dans nos salles de cinéma Pathé">
+    <link rel="stylesheet" href="../fonts/styles.css">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+    <main>
+        <div class="container-fluid">
+            <section class="block">
+                <div class="block-movie-selected" id="block-movie-selected">
+                    <div class="opacity-filter"></div>
+                    <div class="breadcrumb-block">
+                        <div class="breadcrumb">
+                            <a href="../index.html">Accueil</a> &gt; <a href="showtime.html">Choisir une séance</a> &gt;
+                            <span>Vos places</span>
+                        </div>
+                    </div>
+                    <div class="logo-block">
+                        <img src="../assets/images/icons/logo-icon.png" alt="logo des cinémas Pathé">
+                    </div>
+                    <div id="showtime-resume-image"></div>
+                    <div class="showtime-resume-description">
+                        <div id="showtime-resume-title"></div>
+                        <div class="secondary-btn">
+                            <a href="showtime.html">Changer de film</a>
+                        </div>
+                        <div class="showtime-resume-detail">
+                            <h5>Séance</h5>
+                            <div id="showtime-resume-schedule"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="block-selection">
+                    <div class="header-block">
+                        <div id="auditorium"></div>
+                        <div class="back-btn">
+                            <a href="../index.html" title="Retour vers la page d'accueil">
+                                <img src="../assets/images/icons/arrow.png"
+                                    alt="flèche de retour vers la page d'accueil">
+                                <span>Retour</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="body-block">
+                        <h3>Sélectionnez vos places</h3>
+                        <p id="free-seats"></p>
+                        <div id="theater" class="theater"></div>
+                        <div class="screen">
+                            <div class="screen-bar"></div>
+                            <h6>Ecran</h6>
+                            <div class="screen-bar"></div>
+                        </div>
+                        <div class="seat-information">
+                            <div class="seat-legend">
+                                <div class="seat-picto">
+                                    <img src="../assets/images/icons/seat-green.png" alt="sièges sélectionnés">
+                                    <span>Mes places</span>
+                                </div>
+                                <div class="seat-picto">
+                                    <img src="../assets/images/icons/seat-yellow.png" alt="sièges disponibles">
+                                    <span>Places libres</span>
+                                </div>
+                                <div class="seat-picto">
+                                    <img src="../assets/images/icons/seat-grey.png" alt="sièges non disponibles">
+                                    <span>Places non disponibles</span>
+                                </div>
+                            </div>
+                            <div class="seat-reserved"></div>
+                        </div>
+                        <div class="make-reservation">
+                            <p>Réserver mes places</p>
+                            <img src="../assets/images/icons/right-arrow.png" alt="flèche de réservation">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <script src="../script-seatSelection.js"></script>
+</body>
+
+</html>

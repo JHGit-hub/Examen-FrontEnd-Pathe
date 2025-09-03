@@ -7,7 +7,31 @@
 .breadcrumb{
     @include display-flex (row, center, flex-start);
     gap:1rem;
-    a{
+    a, span{
+        font-family: "heebo-medium";
+        font-size: 0.75rem;
+        color: #ffffff;
+    }
+    span{
+        text-decoration: underline;
+    }
+}
+
+.breadcrumb-block{
+    @include display-flex (row, center, flex-start);
+    gap:1rem;
+    width:100%;
+    margin-top: 1.75rem;
+    margin-left: 4.69rem;
+    z-index:100;
+    .breadcrumb{
+        @include display-flex (row, flex-start, center);
+        margin-top: 1.75rem;
+        margin-left: 4.69rem;
+        color: #ffffff;
+        width:100%;
+    }
+    a, span{
         font-family: "heebo-medium";
         font-size: 0.75rem;
         color: #ffffff;

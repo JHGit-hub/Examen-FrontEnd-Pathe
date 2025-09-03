@@ -328,10 +328,20 @@ fetch('../films.json')
         // écoute du click sur une réservation
         // Selection des séances
         const showtimeCards = document.querySelectorAll('.showtime-card');
-        // on boulce sur toutes les séances pour ajouter les écouteurs de click
+        // on boucle sur toutes les séances pour ajouter les écouteurs de click
         showtimeCards.forEach(card => {
             card.addEventListener('click', reserveShowtime);
         });
+        // Ecoute des mouvements de la souris au dessus des showtime-card
+        showtimeCards.forEach( card => {
+            card.addEventListener('mouseenter', () => { // au survol SUR la card
+                pointer.style.display = 'block';
+            });
+            card.addEventListener('mouseleave', () => { // quand NE survol PLUS la card
+                pointer.style.display = 'none';
+            });
+        });
+
 
     })
     .catch(error => {

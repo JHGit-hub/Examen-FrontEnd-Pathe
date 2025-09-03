@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page des séances des films dans les cinémas Pathé</title>
-    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="icon" type="image/png" href="../favicon.png">
     <meta name="description" content="Réserver en ligne votre séance de cinéma dans nos salles de cinéma Pathé">
     <link rel="stylesheet" href="../fonts/styles.css">
     <link rel="stylesheet" href="../css/styles.css">
@@ -13,7 +13,7 @@
 
 <body>
     <header>
-        <div class="container">
+        <div class="container"  id="backtotop">
             <div class="navbar">
                 <div class="breadcrumb">
                     <a href="../index.html">Accueil</a> &gt; <span>Choisir une séance</span>
@@ -24,14 +24,45 @@
                         <span>Retour</span></a>
                 </div>
             </div>
-            <div class="filter-row"></div>
+            <div class="filter-row">
+                <select id="genre-filter" class="filter-btn">
+                    <option value = "">genres</option>
+                    <option value = "Action">Action</option>
+                    <option value = "Animation">Animation</option>
+                    <option value = "Arts Martiaux">Arts Martiaux</option>
+                    <option value = "Comédie">Comédie</option>
+                    <option value = "Épouvante">Épouvante</option>
+                    <option value = "Fantastique">Fantastique</option>
+                    <option value = "Horreur">Horreur</option>
+                    <option value = "Thriller">Thriller</option>
+                </select>
+                <select id="format-filter" class="filter-btn">
+                    <option value= "">formats</option>
+                    <option value= "4k">4K</option>
+                    <option value= "4D">4DX</option>
+                    <option value= "imax">IMAX</option>
+                </select>
+                <select id="language-filter" class="filter-btn">
+                    <option value = "">langues</option>
+                    <option value = "vf">VF</option>
+                    <option value = "vost">VOST</option>
+                </select>
+                <div class="filter-bar">
+                    <img src ="../assets/images/icons/search.png" alt="icône de recherche">
+                    <input type="text" id="filter-input" placeholder="Rechercher ...">
+                </div>
+            </div>
         </div>
     </header>
     <main>
+        <div class="backtotop">
+            <a href="#backtotop" title="retour haut de page"><img src="../assets/images/icons/arrow.png" alt="retour haut de page"></a>
+        </div>
         <div class="container">
             <section class="showtime-section" id="showtime-section"> <!-- boucle pour chaque film -->
             </section>
         </div>
+        <!-- installer modal pour la lecture du trailer -->
     </main>
     <footer></footer>
     <script src="../script-showtime.js"></script>

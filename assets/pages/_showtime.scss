@@ -12,6 +12,28 @@
     margin-top: 1rem;
 }
 
+.filter-row{
+    @include display-flex(row, flex-start, center);
+    gap: 1.25rem;
+    margin-top: 2.25rem;
+    .filter-bar{
+        @include display-flex(row, center, center);
+        gap: 1rem;
+        background-color: #202020;
+        padding: 0rem 1rem;
+        #filter-input{
+            @include display-flex(row, center, center);
+            color: #ffffff;
+            border: none;
+            height: 37px;
+            background-color: #202020;
+        }
+        img{
+            width: 21px;
+        }
+    }
+}
+
 .movie-row{
     @include display-flex(column, center, flex-start);
     gap: 1rem;

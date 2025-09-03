@@ -2,15 +2,15 @@
 
 // création du tableau contenant les url des images du background pour le slider
 const backgroundImg = [
-    "assets/images/banners/scene_film_nobody_2.jpg",
-    "assets/images/banners/affiche_film_evanouis.webp",
-    "assets/images/banners/affiche_film_le_monde_de_wishy.jpg",
+    "assets/images/banners/scene_film_nobody_2.png",
+    "assets/images/banners/affiche_film_evanouis.png",
+    "assets/images/banners/affiche_film_le_monde_de_wishy.png",
     "assets/images/banners/affiche_film_y_a_t_il_un_flic_pour_sauver_le_monde.png",
-    "assets/images/banners/affiche_film_karate_kid_legendes.jpg",
-    "assets/images/banners/scene_film_evanouis.webp",
-    "assets/images/banners/scene_film_karate_kid_legendes.webp",
-    "assets/images/banners/scene_film_le_monde_de_wishy.jpg",
-    "assets/images/banners/affiche_film_nobody_2.jpg"
+    "assets/images/banners/affiche_film_karate_kid_legendes.png",
+    "assets/images/banners/scene_film_evanouis.png",
+    "assets/images/banners/scene_film_karate_kid_legendes.png",
+    "assets/images/banners/scene_film_le_monde_de_wishy.png",
+    "assets/images/banners/affiche_film_nobody_2.png"
 ]
 
 const slider = document.getElementById("slider"); // Récupération de l'élément du DOM par son id

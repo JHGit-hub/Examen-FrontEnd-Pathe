@@ -148,6 +148,41 @@ header {
   transform: rotate(180deg);
 }
 
+.filter-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 115px;
+  height: 37px;
+  background-color: #202020;
+  color: #ffffff;
+  font-family: "heebo-medium";
+  font-size: 1rem;
+  border: none;
+  padding: 0.2rem 0.75rem;
+  text-transform: capitalize;
+}
+
+.backtotop {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  position: fixed;
+  z-index: 10000;
+  bottom: 5%;
+  right: 5%;
+  background-color: #FEB91E;
+  border-radius: 10px;
+}
+.backtotop img {
+  transform: rotate(270deg);
+  width: 21px;
+}
+
 .movie-card {
   display: flex;
   flex-direction: row;
@@ -274,6 +309,9 @@ header {
   font-size: 0.75rem;
   color: #ffffff;
 }
+.breadcrumb span {
+  text-decoration: underline;
+}
 
 .slider {
   position: absolute;
@@ -321,6 +359,37 @@ header {
   align-items: center;
   gap: 1rem;
   margin-top: 1rem;
+}
+
+.filter-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 2.25rem;
+}
+.filter-row .filter-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  background-color: #202020;
+  padding: 0rem 1rem;
+}
+.filter-row .filter-bar #filter-input {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  border: none;
+  height: 37px;
+  background-color: #202020;
+}
+.filter-row .filter-bar img {
+  width: 21px;
 }
 
 .movie-row {

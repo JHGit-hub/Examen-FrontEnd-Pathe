@@ -10,28 +10,15 @@ fetch('../films.json')
 
 
         //// filtrage selon genres, formats ou langues
-        // On récupére l'élément DOM des filtres par leur id
+        // On récupére l'élémentDOM des filtres par leur id
         const genreFilter = document.getElementById('genre-filter');
         const formatFilter = document.getElementById('format-filter');
         const languageFilter = document.getElementById('language-filter');
-        const keywordFilter = document.getElementById('filter-input');
 
         // reécupération de la section incluant les films et leurs séances
         const showtimeSection = document.getElementById('showtime-section');
    
-        ////// convertion de la durée en heure + minutes
-        function formattedDuration(duration) {
-            // on calcul le nombre d'heures
-            // on divise la durée par 60 et Math.floor nous donne l'entier inférieur
-            const hours = Math.floor(duration / 60);
-            // on utilise modulo (%) pour obtenir le reste de la division du dessus
-            const minutes = duration % 60;
-            // on retourne le resultat au format heure / min
-            return `${hours}h ${minutes}`;
-        }
-
-
-        /////// fonction d'affichage des films
+        // fonction d'affichage des films
         function displayMoviesList(list){
             // On vide la section des films avant d'afficher les nouveaux films
             showtimeSection.innerHTML = "";
@@ -83,9 +70,7 @@ fetch('../films.json')
                 //// image -> inclus dans divMovieCard
                 image.push(document.createElement('div'));
                 image[k].className = "movie-img";
-                image[k].innerHTML = `<a href ="${list[k].trailer}" alt="Bande annonce du film ${list[k].title}" target="_blank">
-                                        <img src="../assets/images/illustrations/${list[k].image}" alt="Affiche du film ${list[k].title}">
-                                    </a>`;
+                image[k].innerHTML = `<img src="../assets/images/illustrations/${list[k].image}" alt="Affiche du film ${list[k].title}">`;
 
                 //// divMovieText -> inclus dans divMovieCard
                 divMovieText.push(document.createElement('div'));
@@ -114,7 +99,7 @@ fetch('../films.json')
                 genre[k].textContent = `${list[k].genre}`;
 
                 duration.push(document.createElement('p'));
-                duration[k].textContent = `(${formattedDuration(list[k].durée_minutes)})`;
+                duration[k].textContent = `(${list[k].durée_minutes} min)`;
 
                 ageMini.push(document.createElement('div'));
                 ageMini[k].className = "age-mini";
@@ -153,7 +138,6 @@ fetch('../films.json')
                     //// divShowtimeCard -> inclus dans divShowtimeRow
                     divShowtimeCard.push(document.createElement('div'));
                     divShowtimeCard[j].className = "showtime-card";
-                    divShowtimeCard[j].id = `${list[k].titre}-${list[k].séances[j].horaire}`;
 
                     // divMovieFormat -> inclus dans divShowtimeCard
                     divMovieFormat.push(document.createElement('div'));
@@ -221,13 +205,12 @@ fetch('../films.json')
         displayMoviesList(moviesList);
 
 
-        /////// fonction de filtrage des films
+        // fonction de filtrage des films
         function filterSelectMovies() {
         // On récupére les valeurs des filtres
         const genreValue = genreFilter.value;
         const formatValue = formatFilter.value;
         const languageValue = languageFilter.value;
-        const keywordValue = keywordFilter.value.toLowerCase().trim(); // trim() evite les espaces, toLowerCase() evite la casse
 
             // Filtrer les films en fonction des sélections
             const moviesListFiltered = moviesList
@@ -257,15 +240,9 @@ fetch('../films.json')
                     };
 
                 })
-                .filter(movie =>
-                    // on filtre pour ne garder que les films qui correspondent aux genres
-                    (movie.genre.includes(genreValue) || genreValue === "") &&
-
-                    // et qui correspondent aux mots clefs saisis
-                    (movie.titre.toLowerCase().includes(keywordValue) || keywordValue === "") &&
-
+                .filter(movie => // on filtre pour ne garder que les films qui correspondent aux genres
                     // et dont au moins une séance filtrée est présente
-                    (movie.séances.length > 0)
+                    (movie.genre.includes(genreValue) || genreValue === "") && (movie.séances.length > 0)
                 )
 
             // affichage des films filtrés
@@ -273,51 +250,10 @@ fetch('../films.json')
         }
 
 
-        ////// fonction poure reserver sa séance aprés avoir cliqué
-        function reserveShowtime(){
-            // on récupére la valeur de l'id de la séance cliquée
-            const showtimeId = this.id;
-
-            // on découpe l'id pour récupérer le nom du film et l'horaire
-            const hyphen = showtimeId.lastIndexOf("-"); // lastIndexOf() donne la derniére position dans la chaine de caractére du signe "-"
-            const movieTitle = showtimeId.substring(0, hyphen); // on extrait le tire en partant de 0 jusqu'au "-"
-            const showtime = showtimeId.substring(hyphen +1); // on extrait l'horaire en partant du "-" jusqu'à la fin de la chaine
-
-            // on cherche le film correspondant
-            const movieReservation = moviesList.find(movie => movie.titre === movieTitle); // renvoi le premiére ligne correspondante
-
-            // on cherche la séance correspondante
-            const showtimeReservation = movieReservation.séances.find(séance => séance.horaire === showtime);
-
-            // On stocke dans le localStorage
-            if(movieReservation && showtimeReservation){
-                localStorage.setItem("reservation", JSON.stringify({ // converti en JSON
-                    film: movieReservation,
-                    seance: showtimeReservation
-                }));
-                // on ouvre la page suivante
-                window.location.href = "seat_selection.html";
-            } else {
-                alert("la séance n'a pas été trouvée");
-            }
-        }
-        
-        
-
-
         // écoute des changements sur les filtres
         genreFilter.addEventListener('change', filterSelectMovies);
         formatFilter.addEventListener('change', filterSelectMovies);
         languageFilter.addEventListener('change', filterSelectMovies);
-        keywordFilter.addEventListener('input', filterSelectMovies);
-
-        // écoute du click sur une réservation
-        // Selection des séances
-        const showtimeCards = document.querySelectorAll('.showtime-card');
-        // on boulce sur toutes les séances pour ajouter les écouteurs de click
-        showtimeCards.forEach(card => {
-            card.addEventListener('click', reserveShowtime);
-        });
 
     })
     .catch(error => {

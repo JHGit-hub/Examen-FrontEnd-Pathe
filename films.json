@@ -12,6 +12,7 @@
     "avertissement_violence": true,
     "mention_frisson": true,
     "nouveau": false,
+    "trailer": "https://www.youtube.com/embed/EekFYCmo0eU",
     "séances": [
       {
         "horaire": "11:35",
@@ -105,6 +106,7 @@
     "avertissement_violence": false,
     "mention_frisson": false,
     "nouveau": true,
+    "trailer": "https://www.youtube.com/embed/LhRXf-yEQqA",
     "séances": [
       {
         "horaire": "10:45",
@@ -208,6 +210,7 @@
     "avertissement_violence": true,
     "mention_frisson": false,
     "nouveau": true,
+    "trailer": "https://www.youtube.com/embed/_K286gOz-6I",
     "séances": [
       {
         "horaire": "10:30",
@@ -295,6 +298,7 @@
     "avertissement_violence": false,
     "mention_frisson": false,
     "nouveau": true,
+    "trailer": "https://www.youtube.com/embed/jWnO6T9Opgs",
     "séances": [
       {
         "horaire": "11:15",
@@ -383,6 +387,7 @@
     "avertissement_violence": false,
     "mention_frisson": false,
     "nouveau": true,
+    "trailer": "https://www.youtube.com/embed/uKGTukZ4Pe8",
     "séances": [
       {
         "horaire": "10:30",

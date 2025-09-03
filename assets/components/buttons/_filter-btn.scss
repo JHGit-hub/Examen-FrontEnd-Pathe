@@ -1,0 +1,17 @@
+@use '../../abstracts/colors' as *;
+@use '../../abstracts/typography' as *;
+@use '../../abstracts/mixins' as *;
+
+
+.filter-btn{
+    @include display-flex(row, center, center);
+    width: 115px;
+    height: 37px;
+    background-color: #202020;
+    color: #ffffff;
+    font-family: "heebo-medium";
+    font-size: 1rem;
+    border: none;
+    padding: 0.2rem 0.75rem;
+    text-transform: capitalize;
+}

@@ -1,4 +1,4 @@
-//////// Slider de la page index
+//////////////////// Slider de la page index
 
 // création du tableau contenant les url des images du background pour le slider
 const backgroundImg = [
@@ -42,3 +42,18 @@ slider.style.backgroundImage = `url( ${backgroundImg[0]})`;
 
 // Changement de slide toutes les 3 secondes
 setInterval(sliderBackground, 3000);
+
+//////////////////// annulation de la réservation
+let cancelBtn = document.getElementById("cancel-btn");
+
+function cancelReservation(){
+    // On vide les données du localStorage
+    localStorage.clear();
+    // On recharge la page d'acceuil
+    window.location.href = "../index.html";
+}
+
+// On écoute le click sur le bouton d'annulation
+if(cancelBtn){
+    cancelBtn.addEventListener("click", cancelReservation);
+}

@@ -25,6 +25,7 @@ main{
     height:99%;
 }
 
+
 .block-movie-selected{
     display: flex;
     flex-direction:column;
@@ -70,6 +71,7 @@ main{
     }
 }
 
+
 .block-selection{
     width: 56%;
     background-color: #F0F0F0;
@@ -105,6 +107,87 @@ main{
         gap: 1rem;
     }
 }
+
+
+.cart{
+    @include display-flex(column, space-between, center);
+    width: 100%;
+    height:30%;
+    .body-cart{
+        @include display-flex(row, space-between, center);
+        width:100%;
+        height:100%;
+        background-color: #ffffff;
+        padding:1rem 2rem;
+        .cart-order{
+            @include display-flex(column, flex-start, flex-start);
+            gap:2rem;
+            width:68%;
+            height:100%;
+            #cart-resume{
+                width:100%;
+                height:100%;
+                .cart-item{
+                    @include display-flex(row, space-between, center);
+                    p{
+                        font-family: "heebo-medium";
+                        font-size: 1rem;
+                        color:$dark-color;
+                    }
+                    span{
+                        font-family: "heebo-bold";
+                        font-size: 1rem;
+                        color:$dark-color;
+                    }
+                }
+            }
+        }
+        .cancel-reservation{
+            display:flex;
+            align-items: flex-start;
+            height:100%;
+        }
+    }
+    .footer-cart{
+        @include display-flex(row, space-between, center);
+        width:100%;
+        height:66px;
+        background-color: $secondary-color;
+        .resume-total{
+            @include display-flex(row, space-between, center);
+            height: 100%;
+            width: 67%;
+            margin:0rem 2rem;
+            p{
+                font-family: "heebo-medium";
+                font-size: 1rem;
+                color:#000000;
+            }
+            span{
+                font-family:"heebo-extrabold";
+                font-size: 1.375rem;
+                color: $dark-color;
+            }
+        }
+        #continue-reservation{
+            @include display-flex(row, center, center);
+            gap: 1rem;
+            height: 100%;
+            background-color: $primary-color;
+            width:32%;
+            cursor: pointer;
+            p{
+                font-family:"heebo-extrabold";
+                font-size: 1.25rem;
+                color: #181818;
+            }
+            img{
+                width: 34px;
+            }
+        }
+    }
+}
+
 
 .opacity-filter {
     background-color: #000000;

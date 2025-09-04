@@ -1,4 +1,4 @@
-// Affichage du nombre de place libre
+/////////////////// Affichage du nombre de place libre
 let freeSeats = document.getElementById("free-seats");
 freeSeats.innerHTML = `<p>${movieSelected.showtime.libres} places libres</p>`;
 
@@ -86,6 +86,9 @@ for( let i = 0 ; i < rows ; i++){
 ////// Sélection des siéges
 // création du tableau des siéges selectionnés
 let selectedSeats = [];
+if(localStorage.getItem("selectedSeats")){
+    selectedSeats = JSON.parse(localStorage.getItem("selectedSeats"));
+}
 
 // Selection de l'ensemble des siéges
 const allSeats = document.querySelectorAll('.seat');
@@ -146,3 +149,27 @@ function validateSelectedSeat(){
 
 // On écoute le click sur le bouton de réservation
 makeReservation.addEventListener("click", validateSelectedSeat);
+
+
+
+
+
+//////////////////// Affichage des places selectionnées si existe
+////  On boucle sur les places selectionnées pour les afficher
+selectedSeats.forEach(seatId => {
+    let seat = document.getElementById(seatId);
+    if(seat){
+        // on affiche l'icone du siége sélectionné
+        seat.innerHTML = `<img src="../assets/images/icons/seat-green.png" alt="siége sélectionné">`;
+        // on switch entre les classes "available" et "selected"
+        seat.classList.remove("available");
+        seat.classList.add("selected");
+    }
+});
+
+///// On affiche les id des siéges selectionnés si existe
+if(selectedSeats.length !== 0){
+    seatReserved.innerHTML = `<p>${selectedSeats.length} place(s) réservée(s) : ${selectedSeats.join(", ")}</p>`
+} else {
+    seatReserved.innerHTML = "";
+}

@@ -8,6 +8,22 @@ fetch('../films.json')
         // liste des films
         let moviesList = data;
 
+        ////// animation au pointeur
+        // On récupére le pointer dans le DOM
+        const pointer = document.getElementById('pointer');
+        document.addEventListener("mousemove", (event) => {
+            // on récupére la position de la souris en temps réel
+            let posX = event.clientX; // position du pointeur sur la fenetre
+            let posY = event.clientY;
+            // on modifie la position de "pointer" en fonction de la position de la souris
+            pointer.style.left = posX + "px";
+            pointer.style.top = posY + "px";
+        });
+
+
+
+
+
 
         //// filtrage selon genres, formats ou langues
         // On récupére l'élément DOM des filtres par leur id
@@ -214,6 +230,28 @@ fetch('../films.json')
                 // Intégration de la div incluant le film et ses séances dans la section showtime-section
                 showtimeSection.appendChild(divMovieRow[k]);
             }
+
+            // écoute du click sur une réservation
+            // Selection des séances
+            const showtimeCards = document.querySelectorAll('.showtime-card');
+
+            // on boucle sur toutes les séances pour ajouter les écouteurs de click
+            showtimeCards.forEach(card => {
+                card.addEventListener('click', reserveShowtime);
+            });
+            // Ecoute des mouvements de la souris au dessus des showtime-card
+            showtimeCards.forEach( card => {
+                card.addEventListener('mouseenter', () => { // au survol SUR la card
+                    pointer.style.display = 'block';
+                });
+                card.addEventListener('mouseleave', () => { // quand NE survol PLUS la card
+                    pointer.style.display = 'none';
+                });
+            });
+
+
+
+
         }
 
 
@@ -304,20 +342,6 @@ fetch('../films.json')
         }
         
         
-        ////// animation au pointeur
-        // On récupére le pointer dans le DOM
-        const pointer = document.getElementById('pointer');
-        document.addEventListener("mousemove", (event) => {
-            // on récupére la position de la souris en temps réel
-            let posX = event.clientX; // position du pointeur sur la fenetre
-            let posY = event.clientY;
-            // on modifie la position de "pointer" en fonction de la position de la souris
-            pointer.style.left = posX + "px";
-            pointer.style.top = posY + "px";
-        });
-
-
-
 
         // écoute des changements sur les filtres
         genreFilter.addEventListener('change', filterSelectMovies);
@@ -325,22 +349,6 @@ fetch('../films.json')
         languageFilter.addEventListener('change', filterSelectMovies);
         keywordFilter.addEventListener('input', filterSelectMovies);
 
-        // écoute du click sur une réservation
-        // Selection des séances
-        const showtimeCards = document.querySelectorAll('.showtime-card');
-        // on boucle sur toutes les séances pour ajouter les écouteurs de click
-        showtimeCards.forEach(card => {
-            card.addEventListener('click', reserveShowtime);
-        });
-        // Ecoute des mouvements de la souris au dessus des showtime-card
-        showtimeCards.forEach( card => {
-            card.addEventListener('mouseenter', () => { // au survol SUR la card
-                pointer.style.display = 'block';
-            });
-            card.addEventListener('mouseleave', () => { // quand NE survol PLUS la card
-                pointer.style.display = 'none';
-            });
-        });
 
 
     })

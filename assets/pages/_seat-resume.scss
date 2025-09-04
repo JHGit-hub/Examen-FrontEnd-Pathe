@@ -4,53 +4,80 @@
 
 
 
-
-
-
-
-.cart{
-    width: 100%;
-}
-
-
-
-
-
-.footer-cart{
-    @include display-flex(row, space-between, center);
-    width:100%;
-    height:66px;
-    background-color: $secondary-color;
-    .resume-total{
-        @include display-flex(row, space-between, center);
-        height: 100%;
-        width: 67%;
-        margin:0rem 2rem;
-        p{
-            font-family: "heebo-medium";
-            font-size: 1rem;
-            color:#000000;
-        }
-        span{
-            font-family:"heebo-extrabold";
-            font-size: 1.375rem;
-            color: $dark-color;
-        }
-    }
-    #continue-reservation{
-        @include display-flex(row, center, center);
-        gap: 1rem;
-        height: 100%;
-        background-color: $primary-color;
-        width:32%;
-        cursor: pointer;
-        p{
-            font-family:"heebo-extrabold";
-            font-size: 1.25rem;
-            color: #181818;
-        }
+.select-price{
+    @include display-flex(column, center, center);
+    position:relative;
+    width:80%;
+    height:60%;
+    gap:2rem;
+    .cine-pass{
+        position:absolute;
+        top:31%;
+        left:7%;
+        z-index:200;
         img{
-            width: 34px;
+            width:50px;
         }
     }
+    .seat-price{
+        @include display-flex(column, center, center);
+        width:81%;
+        .row-header{
+            @include display-flex(row, space-between, center);
+            padding: 1rem 1.875rem;
+            border-radius:15px;
+            background-color: $secondary-color;
+            width:100%;
+            p{
+                font-family: "heebo-bold";
+                font-size: 0.75rem;
+                color: #202020;
+            }
+        }
+        .row-body{
+            @include display-flex(column, center, center);
+            gap: 1rem;
+            width:100%;
+            padding: 1rem 1.875rem;
+            border-radius:15px;
+            background-color: #ffffff;
+            .price-type{
+                @include display-flex(row, space-between, center);
+                width:100%;
+                gap:1rem;
+                p{
+                    font-family: "heebo-bold";
+                    font-size: 0.75rem;
+                    color: $dark-color;
+                }
+                .price-bar{
+                    height:1px;
+                    background-color: #E4E4E4;
+                    flex: 1; // ajuste sa taille automatiquement
+                }
+                .ticket-quantity{
+                    @include display-flex(row, center, center);
+                    gap:1rem;
+                    img{
+                        width:17px;
+                    }
+                    p, .quantity-number{
+                        font-family: "heebo-extrabold";
+                        font-size: 1.25rem;
+                        color: #d9d9d9;
+                    }
+                }   
+            }
+        }
+    }
+    .row-btn{
+        @include display-flex(row, flex-start, center);
+        width: 81%;
+    }
 }
+
+
+
+
+
+

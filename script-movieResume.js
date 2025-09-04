@@ -34,3 +34,19 @@ auditorium.innerHTML = `<p>Salle ${movieSelected.showtime.salle}</p>
 } else {
     auditorium.innerHTML = `<p>Salle ${movieSelected.showtime.salle}</p>`;
 }
+
+/////////////////// annulation de la réservation
+let cancelBtn = document.getElementById("cancel-btn");
+
+function cancelReservation(){
+    // On vide les données du localStorage
+    localStorage.clear();
+    // On recharge la page d'acceuil
+    window.location.href = "../index.html";
+}
+
+// On écoute le click sur le bouton d'annulation
+if(cancelBtn){
+    cancelBtn.addEventListener("click", cancelReservation);
+}
+

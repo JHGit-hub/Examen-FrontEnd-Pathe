@@ -4,24 +4,37 @@
 
 .theater{
     display:grid;
-    grid-template-columns: repeat(21, 40px);
-    grid-gap: 2px;
+    grid-template-columns: repeat(19, minmax(20px, 1fr));
+    gap: 4px;
     justify-content: center;
-    margin: 3.5rem;
+    padding: 2rem 4rem;
+    width:100%;
 }
 
 .seat {
-  width: 38px;
-  height: 38px;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   img{
-    width:25px;
+    height:auto;
+    max-width:25px;
   }
+}
+
+.empty-seat {
+    pointer-events: none; // rendre la place vide non cliquable
 }
 
 .occupied{
     pointer-events: none; // rendre le siége non cliquable
+}
+
+.available{
+    cursor: pointer; // changer le curseur au survol pour indiquer que le siége est cliquable
+}
+
+.available:hover, .selected:hover {
+    transform: scale(1.3); // leger effet de zoom au survol
 }

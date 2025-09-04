@@ -1,45 +1,7 @@
-//////////////////// Récupération des données du film et de la séance
-const movieSelected = JSON.parse(localStorage.getItem("movieSelected"));
-
-
-
-
-/////////////////// affichage des données du film selectionné
-
-// Affichage du background
-let blockMovieSelected = document.getElementById("block-movie-selected");
-blockMovieSelected.style.backgroundImage = `url(../assets/images/illustrations/${movieSelected.image})`;
-
-// Affichage de l'affiche du film
-let showtimeResumeImage = document.getElementById("showtime-resume-image");
-showtimeResumeImage.innerHTML = `<img src="../assets/images/illustrations/${movieSelected.image}" alt="Affiche du film ${movieSelected.title}">`;
-
-// Affichage du titre du film
-let showtimeResumeTitle = document.getElementById("showtime-resume-title");
-showtimeResumeTitle.innerHTML = `<h2>${movieSelected.title}</h2>`;
-
 // Affichage du nombre de place libre
 let freeSeats = document.getElementById("free-seats");
 freeSeats.innerHTML = `<p>${movieSelected.showtime.libres} places libres</p>`;
 
-// Affichage de l'horaire de la séance, langue et heure de fin
-let showtimeResumeSchedule = document.getElementById("showtime-resume-schedule");
-if(movieSelected.showtime.vf){
-    showtimeResumeSchedule.innerHTML = `<p>${movieSelected.showtime.horaire} VF</p>
-                                        <span>Fin prévu à ${movieSelected.showtime.fin} </span>`;
-} else {
-    showtimeResumeSchedule.innerHTML = `<p>${movieSelected.showtime.horaire} VOST</p>
-                                        <span>Fin prévu à ${movieSelected.showtime.fin} </span>`;
-}
-
-// affichage du numéro de la salle et l'accés handicapé
-let auditorium = document.getElementById("auditorium");
-if(movieSelected.showtime.handicap){
-auditorium.innerHTML = `<p>Salle ${movieSelected.showtime.salle}</p>
-                        <img src="../assets/images/icons/accessibility-black.png" alt="pictogramme accés handicapé">`;
-} else {
-    auditorium.innerHTML = `<p>Salle ${movieSelected.showtime.salle}</p>`;
-}
 
 
 /////////////////// Génération des places de cinéma
@@ -47,11 +9,11 @@ auditorium.innerHTML = `<p>Salle ${movieSelected.showtime.salle}</p>
 const theater = document.getElementById("theater");
 
 // Attribution des variables
-const rows = 14;
-const columns = 21; // soit 294 places
+const rows = 18;
+const columns = 19; // soit 306 places ( - 2 colonnes vides )
 
 // On calcul le nombre siége occupé
-let occupiedSeatCount = 294 - movieSelected.showtime.libres;
+let occupiedSeatCount = 306 - movieSelected.showtime.libres;
 
 ////// On créé un tableau avec tous les id des siéges
 let allSeatId = [];
@@ -62,7 +24,10 @@ for( let i = 0 ; i < rows ; i++){
 
     // A chaque ligne, on créé un id et on l'ajoute au tableau
     for( let j = 1; j <= columns ; j++){
-        allSeatId.push(`${rowLetter}${j}`);
+        if(j !== 4 || j !== 16){
+            allSeatId.push(`${rowLetter}${j}`);
+        }
+
     }
 }
 
@@ -84,24 +49,100 @@ for( let i = 0 ; i < rows ; i++){
     let rowLetter = String.fromCharCode(65 + i); // Code ASCII, on commence à partir de A
     // A chaque ligne, on créé une div pour les siéges en leur attribuant un id et une icone siége
     for( let j = 1; j <= columns ; j++){
-        let seatId = `${rowLetter}${j}`;
-        const seat = document.createElement("div");
-        // on donne la classe seat a chaque siége
-        seat.classList.add("seat");
-        // on lui donne son id unique
-        seat.id = seatId;
-        // on insére l'icone du siége selon s'il est occupé ou non
-        if(occupiedSeat.includes(seatId)){
-            // siége occupé, on affiche l'icone correspondant
-            seat.innerHTML = `<img src="../assets/images/icons/seat-grey.png" alt="siége non disponible">`;
-            // on lui attribue en plus la classe occupied
-            seat.classList.add("occupied");
+        if(j === 4 || j === 16){
+            const seat = document.createElement("div");
+            // on donne la classe seat a chaque siége
+            seat.classList.add("seat");
+            // on lui attribue la classe vide
+            seat.classList.add("empty-seat");
+            // on l'ajoute au DOM
+            theater.appendChild(seat);
         } else {
-            // siége disponible, on affiche l'icone correspondant
-            seat.innerHTML = `<img src="../assets/images/icons/seat-yellow.png" alt="siége disponible">`;
-        }
+            let seatId = `${rowLetter}${j}`;
+            const seat = document.createElement("div");
+            // on donne la classe seat a chaque siége
+            seat.classList.add("seat");
+            // on lui donne son id unique
+            seat.id = seatId;
+            // on insére l'icone du siége selon s'il est occupé ou non
+            if(occupiedSeat.includes(seatId)){
+                // siége occupé, on affiche l'icone correspondant
+                seat.innerHTML = `<img src="../assets/images/icons/seat-grey.png" alt="siége non disponible">`;
+                // on lui attribue en plus la classe occupied
+                seat.classList.add("occupied");
+            } else {
+                // siége disponible, on affiche l'icone correspondant
+                seat.innerHTML = `<img src="../assets/images/icons/seat-yellow.png" alt="siége disponible">`;
+                // on lui attribue en plus la classe available
+                seat.classList.add("available");
+            }
 
-        // On ajoute le siége créé au plan de salle
-        theater.appendChild(seat);
+            // On ajoute le siége créé au plan de salle
+            theater.appendChild(seat);
+        }
     }
 }
+
+////// Sélection des siéges
+// création du tableau des siéges selectionnés
+let selectedSeats = [];
+
+// Selection de l'ensemble des siéges
+const allSeats = document.querySelectorAll('.seat');
+
+// Selection de la zone d'affichage des siéges selectionnés
+let seatReserved = document.getElementById("seat-reserved");
+
+// Création de la function pour selectionné ou déselectionné la place
+function toggleSelectionSeat() {
+    // On vérifie si le siége est disponible
+    // this correspond a la div que l'on a cliquer
+    if(this.classList.contains("available")){
+        // on passe de l'icone siége jaune à vert
+        this.innerHTML = `<img src="../assets/images/icons/seat-green.png" alt="siége sélectionné">`;
+        // on switch entre les classes "available" et "selected"
+        this.classList.remove("available");
+        this.classList.add("selected");
+        // on enregistre la place dans le tableau des siéges selectionnés
+        selectedSeats.push(this.id);
+
+    } else {
+        this.innerHTML = `<img src="../assets/images/icons/seat-yellow.png" alt="siége disponible">`;
+        this.classList.remove("selected");
+        this.classList.add("available");
+        // on retire le siége du tableau des siéges selectionné grace à son id
+        selectedSeats = selectedSeats.filter(seatId => seatId !== this.id);
+    }
+
+    // On affiche les siéges selectionnés que si au moins 1 id est selectionné
+    if(selectedSeats.length !== 0){
+        seatReserved.innerHTML = `<p>${selectedSeats.length} place(s) réservée(s) : ${selectedSeats.join(", ")}</p>`
+    } else {
+        seatReserved.innerHTML = "";
+    }
+}
+
+
+// on boucle sur toutes les siéges pour ajouter les écouteurs de click
+allSeats.forEach(seat => {
+    seat.addEventListener('click', toggleSelectionSeat);
+});
+
+// Validation de la selection des siéges
+// Selection de la zone a écouter
+let makeReservation = document.getElementById("make-reservation");
+
+// Création de la fonction de validation des places
+function validateSelectedSeat(){
+    // On stocke dans le localStorage
+    if(selectedSeats.length !== 0){
+        localStorage.setItem("selectedSeats", JSON.stringify(selectedSeats)); // converti en JSON
+        // on ouvre la page suivante
+        window.location.href = "seat_resume.html";
+    } else {
+        alert("aucun siége n'est sélectionné");
+    }
+}
+
+// On écoute le click sur le bouton de réservation
+makeReservation.addEventListener("click", validateSelectedSeat);

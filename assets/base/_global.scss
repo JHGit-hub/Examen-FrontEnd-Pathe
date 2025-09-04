@@ -13,8 +13,107 @@ main{
 
 .container-fluid{
     width:100%;
+    height:100vh;
 }
 
 .container{
     width: 89%;
+}
+
+.block{
+    display:flex;
+    height:99%;
+}
+
+.block-movie-selected{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    width: 44%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    gap:3rem;
+    .logo-block, #showtime-resume-title, #showtime-resume-detail{
+        z-index: 100;
+    }
+    #showtime-resume-image {
+        width: 30%;
+        height: auto;
+        z-index: 100;
+        img{
+            width:100%;
+        }
+    }
+    .showtime-resume-description{
+        @include display-flex(column, center, center);
+        gap:1rem;
+        z-index: 100;
+        .showtime-resume-detail {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            #showtime-resume-schedule {
+                p{
+                    font-family:"heebo-medium";
+                    font-size: 1rem;
+                    color: #ffffff;
+                }
+                span{
+                    font-family:"heebo-medium";
+                    font-size: 0.625rem;
+                    color: #b3b3b3;
+                }
+
+            }
+        }
+    }
+}
+
+.block-selection{
+    width: 56%;
+    background-color: #F0F0F0;
+    height:100%;
+    z-index:100;
+    .header-block{
+        @include display-flex(row, space-between, center);
+        padding: 1rem 2rem;
+        border-bottom: 1px solid #eeeeee;
+        padding: 1.875rem;
+        padding-bottom: 0rem;
+        margin-bottom: 3.875rem;
+        #auditorium{
+            @include display-flex(row, center, center);
+            gap:0.5rem;
+            p{
+                font-family: "heebo-medium";
+                font-size:1rem;
+                color: $dark-color;
+            }
+            img{
+                width:13px;
+            }
+        }
+        .back-btn{
+            background-color: $dark-color;
+        }
+
+    }
+    .body-block{
+        @include display-flex(column, space-between, center);
+        height: 88%;
+        gap: 1rem;
+    }
+}
+
+.opacity-filter {
+    background-color: #000000;
+    height: 100%;
+    opacity: 0.6;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
 }

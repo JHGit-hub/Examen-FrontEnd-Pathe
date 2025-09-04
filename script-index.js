@@ -14,7 +14,7 @@ const backgroundImg = [
 ]
 
 const slider = document.getElementById("slider"); // Récupération de l'élément du DOM par son id
-let i = 0; // Index de l'image actuelle
+let i = 1; // Index de l'image actuelle
 
 // Création de la fonction sliderBackground
 function sliderBackground(){

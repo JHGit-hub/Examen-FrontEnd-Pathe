@@ -1,0 +1,16 @@
+@use '../../abstracts/colors' as *;
+@use '../../abstracts/typography' as *;
+@use '../../abstracts/mixins' as *;
+
+
+.cancel-btn{
+    @include display-flex(row, center, center);
+    background-color: #ff0000;
+    border-radius: 8px;
+    padding: 0.2rem 1rem;
+    span{
+        color: #ffffff;
+        font-family:"heebo-medium";
+        font-size:0.875rem;
+    }
+}

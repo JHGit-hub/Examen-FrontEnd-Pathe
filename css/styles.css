@@ -84,10 +84,117 @@ main {
 
 .container-fluid {
   width: 100%;
+  height: 100vh;
 }
 
 .container {
   width: 89%;
+}
+
+.block {
+  display: flex;
+  height: 99%;
+}
+
+.block-movie-selected {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 44%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  gap: 3rem;
+}
+.block-movie-selected .logo-block, .block-movie-selected #showtime-resume-title, .block-movie-selected #showtime-resume-detail {
+  z-index: 100;
+}
+.block-movie-selected #showtime-resume-image {
+  width: 30%;
+  height: auto;
+  z-index: 100;
+}
+.block-movie-selected #showtime-resume-image img {
+  width: 100%;
+}
+.block-movie-selected .showtime-resume-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  z-index: 100;
+}
+.block-movie-selected .showtime-resume-description .showtime-resume-detail {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.block-movie-selected .showtime-resume-description .showtime-resume-detail #showtime-resume-schedule p {
+  font-family: "heebo-medium";
+  font-size: 1rem;
+  color: #ffffff;
+}
+.block-movie-selected .showtime-resume-description .showtime-resume-detail #showtime-resume-schedule span {
+  font-family: "heebo-medium";
+  font-size: 0.625rem;
+  color: #b3b3b3;
+}
+
+.block-selection {
+  width: 56%;
+  background-color: #F0F0F0;
+  height: 100%;
+  z-index: 100;
+}
+.block-selection .header-block {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #eeeeee;
+  padding: 1.875rem;
+  padding-bottom: 0rem;
+  margin-bottom: 3.875rem;
+}
+.block-selection .header-block #auditorium {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+.block-selection .header-block #auditorium p {
+  font-family: "heebo-medium";
+  font-size: 1rem;
+  color: #1C2129;
+}
+.block-selection .header-block #auditorium img {
+  width: 13px;
+}
+.block-selection .header-block .back-btn {
+  background-color: #1C2129;
+}
+.block-selection .body-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 88%;
+  gap: 1rem;
+}
+
+.opacity-filter {
+  background-color: #000000;
+  height: 100%;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
 }
 
 header {
@@ -99,26 +206,39 @@ header {
 
 .theater {
   display: grid;
-  grid-template-columns: repeat(21, 40px);
-  grid-gap: 2px;
+  grid-template-columns: repeat(19, minmax(20px, 1fr));
+  gap: 4px;
   justify-content: center;
-  margin: 3.5rem;
+  padding: 2rem 4rem;
+  width: 100%;
 }
 
 .seat {
-  width: 38px;
-  height: 38px;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
 }
 .seat img {
-  width: 25px;
+  height: auto;
+  max-width: 25px;
+}
+
+.empty-seat {
+  pointer-events: none;
 }
 
 .occupied {
   pointer-events: none;
+}
+
+.available {
+  cursor: pointer;
+}
+
+.available:hover, .selected:hover {
+  transform: scale(1.3);
 }
 
 .primary-btn {
@@ -167,11 +287,8 @@ header {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  font-family: "heebo-medium";
-  font-size: 1.23rem;
-  color: #ffffff;
   background-color: #1C2129;
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 0.5rem 1.5rem;
   border: solid 1px #1C2129;
 }
@@ -225,6 +342,42 @@ header {
 .backtotop img {
   transform: rotate(270deg);
   width: 21px;
+}
+
+.cancel-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #ff0000;
+  border-radius: 8px;
+  padding: 0.2rem 1rem;
+}
+.cancel-btn span {
+  color: #ffffff;
+  font-family: "heebo-medium";
+  font-size: 0.875rem;
+}
+
+.add-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #1C2129;
+  border-radius: 8px;
+  padding: 0.5rem 1.5rem;
+}
+.add-btn a {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: #ffffff;
+  font-family: "heebo-medium";
+  font-size: 0.875rem;
 }
 
 .movie-card {
@@ -309,6 +462,7 @@ header {
   border-radius: 15px;
   background-color: #202020;
   padding: 0rem 1rem;
+  cursor: pointer;
 }
 .showtime-row .showtime-card .movie-format img {
   width: 30px;
@@ -439,6 +593,58 @@ header {
   width: 52%;
 }
 
+.cart {
+  width: 100%;
+}
+
+.footer-cart {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 66px;
+  background-color: #FFDC7D;
+}
+.footer-cart .resume-total {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 67%;
+  margin: 0rem 2rem;
+}
+.footer-cart .resume-total p {
+  font-family: "heebo-medium";
+  font-size: 1rem;
+  color: #000000;
+}
+.footer-cart .resume-total span {
+  font-family: "heebo-extrabold";
+  font-size: 1.375rem;
+  color: #1C2129;
+}
+.footer-cart #continue-reservation {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  height: 100%;
+  background-color: #FEB91E;
+  width: 32%;
+  cursor: pointer;
+}
+.footer-cart #continue-reservation p {
+  font-family: "heebo-extrabold";
+  font-size: 1.25rem;
+  color: #181818;
+}
+.footer-cart #continue-reservation img {
+  width: 34px;
+}
+
 .navbar {
   display: flex;
   flex-direction: row;
@@ -489,60 +695,10 @@ header {
   margin: 4rem 0;
 }
 
-.block {
-  display: flex;
-  height: 100vh;
-}
-
-.block-movie-selected {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 44%;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  gap: 3rem;
-}
-.block-movie-selected .logo-block, .block-movie-selected #showtime-resume-title, .block-movie-selected #showtime-resume-detail {
-  z-index: 100;
-}
-.block-movie-selected #showtime-resume-image {
-  width: 30%;
-  height: auto;
-  z-index: 100;
-}
-.block-movie-selected #showtime-resume-image img {
-  width: 100%;
-}
-.block-movie-selected .showtime-resume-description {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  z-index: 100;
-}
-.block-movie-selected .showtime-resume-description .showtime-resume-detail {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-}
-.block-movie-selected .showtime-resume-description .showtime-resume-detail #showtime-resume-schedule p {
-  font-family: "heebo-medium";
-  font-size: 1rem;
-  color: #ffffff;
-}
-.block-movie-selected .showtime-resume-description .showtime-resume-detail #showtime-resume-schedule span {
-  font-family: "heebo-medium";
-  font-size: 0.625rem;
-  color: #b3b3b3;
-}
-
 .block-selection {
   width: 56%;
   background-color: #F0F0F0;
-  height: 100vh;
+  height: 100%;
   z-index: 100;
 }
 .block-selection .header-block {
@@ -554,6 +710,7 @@ header {
   border-bottom: 1px solid #eeeeee;
   padding: 1.875rem;
   padding-bottom: 0rem;
+  margin-bottom: 3.875rem;
 }
 .block-selection .header-block #auditorium {
   display: flex;
@@ -573,20 +730,14 @@ header {
 .block-selection .header-block .back-btn {
   background-color: #1C2129;
 }
-.block-selection .body-block {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-  height: 94%;
-  gap: 2rem;
-}
-.block-selection .body-block #free-seats p {
+
+#free-seats p {
   font-family: "heebo-regular";
   font-size: 1rem;
   color: #666666;
 }
-.block-selection .body-block .screen {
+
+.screen {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -594,24 +745,25 @@ header {
   width: 85%;
   height: 30px;
 }
-.block-selection .body-block .screen .screen-bar {
+.screen .screen-bar {
   width: 39%;
   height: 10px;
   background-color: #DAA846;
 }
-.block-selection .body-block .screen p {
+.screen p {
   font-family: "heebo-bold";
   font-size: 1.25rem;
   color: #DAA846;
 }
-.block-selection .body-block .seat-information {
+
+.seat-information {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   width: 85%;
 }
-.block-selection .body-block .seat-information .seat-legend {
+.seat-information .seat-legend {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -619,22 +771,36 @@ header {
   gap: 2rem;
   height: 54px;
 }
-.block-selection .body-block .seat-information .seat-legend .seat-picto {
+.seat-information .seat-legend .seat-picto {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
 }
-.block-selection .body-block .seat-information .seat-legend .seat-picto span {
+.seat-information .seat-legend .seat-picto span {
   font-family: "heebo-medium";
   font-size: 0.75rem;
   color: #1C2129;
 }
-.block-selection .body-block .seat-information .seat-legend .seat-picto img {
+.seat-information .seat-legend .seat-picto img {
   width: 25px;
 }
-.block-selection .body-block .make-reservation {
+.seat-information #seat-reserved {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  height: 54px;
+  width: 50%;
+}
+.seat-information #seat-reserved p {
+  font-family: "heebo-medium";
+  font-size: 0.75rem;
+  color: #353535;
+}
+
+#make-reservation {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -643,27 +809,15 @@ header {
   height: 66px;
   background-color: #FEB91E;
   width: 100%;
+  cursor: pointer;
 }
-.block-selection .body-block .make-reservation p {
+#make-reservation p {
   font-family: "heebo-extrabold";
   font-size: 1.25rem;
   color: #181818;
 }
-.block-selection .body-block .make-reservation img {
+#make-reservation img {
   width: 34px;
-}
-
-.opacity-filter {
-  background-color: #000000;
-  /* width: 500px; */
-  height: 100vh;
-  opacity: 0.6;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  z-index: 1;
 }
 
 /*# sourceMappingURL=styles.css.map */

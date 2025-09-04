@@ -1,0 +1,17 @@
+@use '../../abstracts/colors' as *;
+@use '../../abstracts/typography' as *;
+@use '../../abstracts/mixins' as *;
+
+
+.secondary-btn {
+    @include display-flex(row, center, center);
+    background-color: $dark-color;
+    font-family: "heebo-extrabold";
+    border-radius: 20px;
+    padding: 0.625rem 1.5rem;
+    z-index: 100;
+    margin-top: 1rem;
+    a{
+        color: #ffffff;
+    }
+}

@@ -1,0 +1,62 @@
+@use '../../abstracts/colors' as *;
+@use '../../abstracts/typography' as *;
+@use '../../abstracts/mixins' as *;
+
+.snack-selection{
+    @include display-flex(column, flex-start, flex-start);
+    gap:2rem;
+    .row-selection{
+        @include display-flex(column, center, flex-start);
+        gap:1rem;
+        h5{
+            font-family: "heebo-semibold";
+            font-size: 1rem;
+            color: #000000;
+        }
+        .snack-row{
+            @include display-flex(row, center, center);
+            gap:1rem;
+            .snack-card{
+                @include display-flex(column, center, center);
+                width:94px;
+                height:104px;
+                background-color: #ffffff;
+                border-radius: 4px;
+                box-shadow: 0 4px 24px 0 rgba(0,0,0,0.08);
+                .image-snack img{
+                    width:45px;
+                }
+                .detail-snack{
+                    p{
+                        font-family: "heebo-regular";
+                        font-size: 0.5rem;
+                        color: #000000;
+                    }
+                    .add-snack{
+                        @include display-flex(row, space-between, center);
+                        gap: 0.5rem;
+                        span{
+                            font-family: "heebo-extrabold";
+                            font-size: 0.8rem;
+                            color: #000000;
+                        }
+                        .snack-quantity {
+                            @include display-flex(row, center, baseline);
+                            gap:0.2rem;
+                            img{
+                                width: 10px;
+                                cursor: pointer;
+                            }
+                            p, .quantity-number{
+                                font-family: "heebo-extrabold";
+                                font-size: 0.8rem;
+                                color: #000000;
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+}

@@ -22,9 +22,6 @@ fetch('../films.json')
 
 
 
-
-
-
         //// filtrage selon genres, formats ou langues
         // On récupére l'élément DOM des filtres par leur id
         const genreFilter = document.getElementById('genre-filter');
@@ -61,7 +58,7 @@ fetch('../films.json')
             let genre = []; // genre du film
             let ageMini = []; // âge minimum recommandé
 
-            // création des div pour structue HTML des cards des films
+            // création des div pour structure HTML des cards des films
             let divMovieCard = [];
             let divMovieText = [];
             let divAboutMovie = [];
@@ -72,7 +69,7 @@ fetch('../films.json')
 
             // On boucle sur la liste des cinémas
             for(k=0; k < list.length; k++){
-                //// création de k élement par tableau et attribution texet/html par éléments
+                //// création de k élement par tableau et attribution texte/html par éléments
 
                 // Informations de chaque séance ( formats, horaires, langues, etc ...)
                 let schedule =[]; // horaires des séances
@@ -338,6 +335,7 @@ fetch('../films.json')
                 window.location.href = "seat_selection.html";
             } else {
                 alert("la séance n'a pas été trouvée");
+                return;
             }
         }
         

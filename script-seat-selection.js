@@ -144,6 +144,7 @@ function validateSelectedSeat(){
         window.location.href = "seat_resume.html";
     } else {
         alert("aucun siége n'est sélectionné");
+        return;
     }
 }
 

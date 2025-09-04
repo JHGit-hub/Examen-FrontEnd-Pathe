@@ -99,3 +99,31 @@ updateQuantity("children-price-less", "children-price-more", "children-price-qua
 cartResume();
 
 
+//////////////////// Validation des tarifs
+// Validation de la selection des siéges
+// Selection de la zone a écouter
+let continueReservation = document.getElementById("continue-reservation");
+
+// Création de la fonction de validation des places
+function validatePriceSeat(){
+    const normalQuantity = parseInt(document.getElementById("normal-price-quantity").textContent, 10);
+    const morningQuantity = parseInt(document.getElementById("morning-price-quantity").textContent, 10);
+    const childrenQuantity = parseInt(document.getElementById("children-price-quantity").textContent, 10);
+
+    const total = normalQuantity + morningQuantity + childrenQuantity;
+
+    if(total !== selectedSeats.length){
+        alert("Tu dois choisir exactement " + selectedSeats.length + " tarifs (un par siège sélectionné).");
+        return;
+    }
+
+    localStorage.setItem("selectedPrices", JSON.stringify({
+        normalQuantitySelected: normalQuantity,
+        morningQuantitySelected: morningQuantity,
+        childrenQuantitySelected: childrenQuantity
+    }));
+    window.location.href = "select_snack.html";
+}
+
+// On écoute le click sur le bouton de réservation
+continueReservation.addEventListener("click", validatePriceSeat);

@@ -611,6 +611,80 @@ header {
   width: 14px;
 }
 
+.snack-selection {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 2rem;
+}
+.snack-selection .row-selection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.snack-selection .row-selection h5 {
+  font-family: "heebo-semibold";
+  font-size: 1rem;
+  color: #000000;
+}
+.snack-selection .row-selection .snack-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.snack-selection .row-selection .snack-row .snack-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 94px;
+  height: 104px;
+  background-color: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.08);
+}
+.snack-selection .row-selection .snack-row .snack-card .image-snack img {
+  width: 45px;
+}
+.snack-selection .row-selection .snack-row .snack-card .detail-snack p {
+  font-family: "heebo-regular";
+  font-size: 0.5rem;
+  color: #000000;
+}
+.snack-selection .row-selection .snack-row .snack-card .detail-snack .add-snack {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+.snack-selection .row-selection .snack-row .snack-card .detail-snack .add-snack span {
+  font-family: "heebo-extrabold";
+  font-size: 0.8rem;
+  color: #000000;
+}
+.snack-selection .row-selection .snack-row .snack-card .detail-snack .add-snack .snack-quantity {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: baseline;
+  gap: 0.2rem;
+}
+.snack-selection .row-selection .snack-row .snack-card .detail-snack .add-snack .snack-quantity img {
+  width: 10px;
+  cursor: pointer;
+}
+.snack-selection .row-selection .snack-row .snack-card .detail-snack .add-snack .snack-quantity p, .snack-selection .row-selection .snack-row .snack-card .detail-snack .add-snack .snack-quantity .quantity-number {
+  font-family: "heebo-extrabold";
+  font-size: 0.8rem;
+  color: #000000;
+}
+
 #pointer {
   display: none;
   position: fixed;

@@ -24,17 +24,30 @@ document.getElementById("total-cart").textContent = totalCart.toFixed(2) + " €
 
 
 //////////////////// Gestion du choix de payment
-const accordionHeader = document.querySelectorAll(".accordion-header");
-const accordionBody = document.querySelectorAll(".accordion-body");
-
-// Création de la function de l'ouverture / fermture de l'accordion
-function toggleAccordion() {
-    accordionHeader.forEach(header => {
-        header.addEventListener("click", () => {
-            accordionBody.forEach(body => body.classList.add("hidden"));
-            accordionHeader.forEach(header => header.classList.remove("hidden"));
-            accordionBody.classList.remove("hidden");
-            accordionHeader.classList.add("hidden");
-        });
-    });
+// Création d'une function pour tout refermer et n'afficher que les headers des accordions
+function hideAccordions() {
+    document.querySelectorAll(".accordion-header").forEach(header => header.classList.remove("hidden"));
+    document.querySelectorAll(".accordion-body").forEach(body => body.classList.add("hidden"));
 }
+
+// Pour chaque accordion-header (bouton)
+document.querySelectorAll('.accordion-header').forEach(header => {
+    header.addEventListener('click', function() {
+        // On referme tout
+        hideAccordions();
+        // On cache ce header
+        this.classList.add("hidden"); // this selectionne le header cliqué
+        // On affiche le body associé
+        const body = this.nextElementSibling; // .nextElementSibling selectionne la balise suivante dans le DOM qui a le même parent
+        body.classList.remove('hidden');
+    });
+});
+
+// Pour chaque accordion-body
+document.querySelectorAll('.accordion-body').forEach(body => {
+    body.addEventListener('click', function() {
+        // On referme tout
+        hideAccordions();
+    });
+});
+

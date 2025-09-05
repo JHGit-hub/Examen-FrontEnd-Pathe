@@ -54,4 +54,19 @@ document.querySelectorAll('.accordion-body').forEach(body => {
 });
 
 
+//////////////////// Gestion de validation du paiement
+// Selection de la zone a écouter
+const continueReservation = document.getElementById("continue-reservation");
 
+// Création de la fonction de validation du paiement
+function validatePayment(){
+
+    // on enregistre dans le localStorage le total du panier
+        localStorage.setItem("totalCart", JSON.stringify(totalCart)); 
+
+    // on ouvre la page suivante
+        window.location.href = "resume_reservation.html";
+}
+
+// On écoute le click sur le bouton de réservation
+continueReservation.addEventListener("click", validatePayment);

@@ -1164,4 +1164,90 @@ header {
   align-self: flex-end;
 }
 
+.section-resume-reservation {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+.section-resume-reservation .resume-reservation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  gap: 2rem;
+}
+.section-resume-reservation .resume-reservation .resume-ticket {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  position: relative;
+  width: 40%;
+  height: 62%;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.08);
+  padding: 1.5rem 2rem;
+}
+.section-resume-reservation .resume-reservation .resume-ticket h4 {
+  font-family: "hetpta";
+  font-size: 1rem;
+  color: #000000;
+}
+.section-resume-reservation .resume-reservation .resume-ticket h6 {
+  font-family: "hetpta";
+  font-size: 1.375rem;
+  color: #000000;
+  text-transform: uppercase;
+}
+.section-resume-reservation .resume-reservation .resume-ticket #resume-showtime {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.section-resume-reservation .resume-reservation .resume-ticket .background-pathe {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  background-color: #ffffff;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+.section-resume-reservation .resume-reservation .resume-ticket .background-pathe img {
+  width: 90%;
+}
+.section-resume-reservation .resume-reservation .resume-ticket .qr-code {
+  align-self: flex-end;
+}
+.section-resume-reservation .resume-reservation .resume-ticket .qr-code img {
+  width: 102px;
+}
+
+.thanks-msg {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2.25rem;
+}
+.thanks-msg p {
+  font-family: "heebo-regular";
+  font-size: 1rem;
+  color: #6a6a6a;
+}
+
 /*# sourceMappingURL=styles.css.map */

@@ -2,37 +2,6 @@
 @use '../abstracts/colors' as *;
 
 
-.block-selection{
-    width: 56%;
-    background-color: #F0F0F0;
-    height:100%;
-    z-index:100;
-    .header-block{
-        @include display-flex(row, space-between, center);
-        padding: 1rem 2rem;
-        border-bottom: 1px solid #eeeeee;
-        padding: 1.875rem;
-        padding-bottom: 0rem;
-        margin-bottom: 3.875rem;
-        #auditorium{
-            @include display-flex(row, center, center);
-            gap:0.5rem;
-            p{
-                font-family: "heebo-medium";
-                font-size:1rem;
-                color: $dark-color;
-            }
-            img{
-                width:13px;
-            }
-        }
-        .back-btn{
-            background-color: $dark-color;
-        }
-
-    }
-}
-
 #free-seats p{
     font-family: "heebo-regular";
     font-size: 1rem;
@@ -72,7 +41,7 @@
                 color: $dark-color;
             }
             img {
-                width:25px;
+                width:20px;
             }
         }
     }

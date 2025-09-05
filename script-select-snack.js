@@ -1,8 +1,8 @@
-/////// On récupére les données du localStorage
+//////////////////// On récupére les données du localStorage
 const detailSelectedPrices = JSON.parse(localStorage.getItem("selectedPrices"));
 
 
-/////// Gestion du catalogue des snacks
+//////////////////// Gestion du catalogue des snacks
 
 // Import des données depuis un fichier JSON
 fetch('../snack.json')
@@ -17,7 +17,7 @@ fetch('../snack.json')
         const popcornCards = document.getElementById("popcorn-cards");
         const drinkCards = document.getElementById("drink-cards");
 
-        // création des lignes de snacks
+        // création des lignes de cards des snacks
         menuCards.appendChild(createSnackCard("Formules"));
         popcornCards.appendChild(createSnackCard("Pop Corn et Sucreries"));
         drinkCards.appendChild(createSnackCard("Boissons"));
@@ -26,6 +26,37 @@ fetch('../snack.json')
         updateSnackQuantity("Formules");
         updateSnackQuantity("Pop Corn et Sucreries");
         updateSnackQuantity("Boissons");
+
+        ////// Récupération des snacks sélectionnés si existants
+        const selectedSnacks = JSON.parse(localStorage.getItem("selectedSnacks"));
+        if(Array.isArray(selectedSnacks)){ // on verifie si le tableau n'est pas null
+
+            const allCategories = ["Formules", "Pop Corn et Sucreries", "Boissons"];
+
+            // on parcours toutes les catégories pour afficher le panier complet
+            for( let k=0; k < allCategories.length; k++){
+                const key = allCategories[k];
+
+                for(let i=0; i < snackList[key].length; i++){
+
+                    // On parcour chaque element des tableaux des categories
+                    // et si on a un element qui correspond, on affiche le résultat
+                    const snackSelected = selectedSnacks.find(snack => snack.name === snackList[key][i].nom);
+
+                    if(snackSelected) {
+
+                        // Récupération de l'id du snack
+                        const snackId = snackList[key][i].image.replace(".png","");
+
+                        // Récupération de la div quantité du snack
+                        const quantityDiv = document.getElementById(snackId + "-quantity");
+
+                        // On donne la valeur du snack selectionnée a la div
+                        quantityDiv.textContent = snackSelected.quantity;
+                    }
+                }
+            }
+        }
 
         // ajout des snacks au panier
         cartSnackResume();
@@ -113,7 +144,11 @@ fetch('../snack.json')
             cartResume.innerHTML = "";
             totalCart.textContent = "";
 
+            // Création du tableau du panier
             let total = 0;
+
+            // Création du tableau de snacks selectionnés
+            let selectedSnacks = [];
 
             // Ajout de l'affichage des billets
             // si le tableau existe
@@ -126,7 +161,10 @@ fetch('../snack.json')
                         cartResume.innerHTML += `
                         <div class="cart-item" id="${ticket.label}-resume">
                             <p><span>${ticket.quantity} x </span>${ticket.label}</p>
-                            <span>${ (ticket.quantity * ticket.price).toFixed(2) } €</span>
+                            <div class="snack-cart-price">
+                                <span>${ (ticket.quantity * ticket.price).toFixed(2) } €</span>
+                                <div class="div-empty"></div>
+                            </div>
                         </div>`;
                         total += (ticket.quantity * ticket.price);
                     }
@@ -156,18 +194,78 @@ fetch('../snack.json')
                         cartResume.innerHTML += 
                             `<div class="cart-item" id="${snackId}-resume">
                                 <p><span>${snackQuantity} x </span>${snackList[key][i].nom}</p>
-                                <span>${ (snackQuantity * snackPrice).toFixed(2) } €</span>
+                                <div class="snack-cart-price">
+                                    <span>${ (snackQuantity * snackPrice).toFixed(2) } €</span>
+                                    <div class="bin-img" id="${snackId}">
+                                        <img src="../assets/images/icons/bin.png" alt="supprimer la commande"">
+                                    </div>
+                                </div>
                             </div>`; // toFixed(2) permet d'afficher 2 chiffre aprés la virgule
                         total += (snackQuantity * snackPrice);
+
+                        // On rempli le tableau des snacks
+                        selectedSnacks.push({
+                            id: snackId,
+                            name: snackList[key][i].nom,
+                            price: snackPrice,
+                            quantity: snackQuantity
+                        });
+
                     }
                 }
             }
             totalCart.textContent = `${total.toFixed(2)} €`;
 
+            ////// Gestion de la suppression d'un snack du panier
+            const SnacksInCart = document.querySelectorAll(".bin-img");
+
+            // on boucle sur les élèments pour ajouter les écouteurs de click
+            SnacksInCart.forEach(snack => {
+                snack.addEventListener('click', deleteFromCart);
+            });
+
+            // Création de la fonction suppression du panier
+            function deleteFromCart(){
+                // on récupére l'id de l'élément cliqué
+                const snackId = this.id;
+
+                // on affiche la quantité du snack à 0
+                const quantityDiv = document.getElementById(snackId + "-quantity");
+                quantityDiv.textContent = 0;
+
+                // on retire le snack du le panier
+                selectedSnacks = selectedSnacks.filter(snack => snack.id !== snackId);
+                localStorage.setItem("selectedSnacks", JSON.stringify(selectedSnacks));
+
+                cartSnackResume();
+
+            }
+
+            return selectedSnacks;
+
         }
+    
+
+        //////////////////// Enregistrement de la commande compléte
+        // Selection de la zone a écouter
+        const continueReservation = document.getElementById("continue-reservation");
+
+        // Création de la fonction de validation des choix des snacks
+        function validateSelectedSnacks(){
+            // on récupére le tableau des snacks selectionnés
+            const selectedSnacks = cartSnackResume(); // cartSnackResume renvoi le tableau des snacks sélectionnés
+
+            // on enregistre dans le localStorage même si selectedSnacks est vide
+                localStorage.setItem("selectedSnacks", JSON.stringify(selectedSnacks)); 
+
+            // on ouvre la page suivante
+                window.location.href = "select_payment.html";
+        }
+
+        // On écoute le click sur le bouton de réservation
+        continueReservation.addEventListener("click", validateSelectedSnacks);
 
     })
     .catch(error => {
         console.error('Erreur lors de la récupération des données :', error);
     });
-    

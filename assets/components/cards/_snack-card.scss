@@ -4,10 +4,10 @@
 
 .snack-selection{
     @include display-flex(column, flex-start, flex-start);
-    gap:2rem;
+    gap:0.875rem;
     .row-selection{
         @include display-flex(column, center, flex-start);
-        gap:1rem;
+        gap:0.5rem;
         h5{
             font-family: "heebo-semibold";
             font-size: 1rem;
@@ -37,11 +37,11 @@
                         gap: 0.5rem;
                         span{
                             font-family: "heebo-extrabold";
-                            font-size: 0.8rem;
+                            font-size: 0.5rem;
                             color: #000000;
                         }
                         .snack-quantity {
-                            @include display-flex(row, center, baseline);
+                            @include display-flex(row, center, center);
                             gap:0.2rem;
                             img{
                                 width: 10px;
@@ -49,7 +49,7 @@
                             }
                             p, .quantity-number{
                                 font-family: "heebo-extrabold";
-                                font-size: 0.8rem;
+                                font-size: 0.5rem;
                                 color: #000000;
                             }
                         }

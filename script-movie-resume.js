@@ -50,3 +50,17 @@ if(cancelBtn){
     cancelBtn.addEventListener("click", cancelReservation);
 }
 
+/////////////////// retour au choix des séances en vidant le storage
+let backBtn = document.getElementById("back-btn");
+
+function goBackToShowtimeSelection(){
+    // On vide les données du localStorage
+    localStorage.clear();
+    // On recharge la page de sélection de séance
+    window.location.href = "showtime.html";
+}
+
+// On écoute le click sur le bouton de retour
+if(backBtn){
+    backBtn.addEventListener("click", goBackToShowtimeSelection);
+}

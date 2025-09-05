@@ -3,6 +3,23 @@ const selectedSeats = JSON.parse(localStorage.getItem("selectedSeats"));
 const ticketsQuantityToBuy = selectedSeats.length;
 
 
+//////////////////// Affichage des tarifs selectionnés si existe
+if(localStorage.getItem("selectedPrices")) {
+    const detailSelectedPrices = JSON.parse(localStorage.getItem("selectedPrices"));
+    // On boucle sur chaque lignes du tableau
+    detailSelectedPrices.forEach(price => {
+        // On extrait les quantités du localStorage pour les inclure dans l'affichage
+        if(price.label === "Plein tarif"){
+            document.getElementById("normal-price-quantity").textContent = price.quantity; // on donne la valeur du storage
+        }
+        if(price.label === "Matin"){
+            document.getElementById("morning-price-quantity").textContent = price.quantity; 
+        }
+        if(price.label === "Moins de 14 ans"){
+            document.getElementById("children-price-quantity").textContent = price.quantity; 
+        }
+    });
+}
 
 //////////////////// Gestion des quantité de tickets
 let ticketQuantity = 0; // quantité total des tickets selectionnés
@@ -132,3 +149,6 @@ function validatePriceSeat(){
 
 // On écoute le click sur le bouton de réservation
 continueReservation.addEventListener("click", validatePriceSeat);
+
+
+

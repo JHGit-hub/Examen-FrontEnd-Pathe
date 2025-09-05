@@ -129,8 +129,15 @@ function validatePriceSeat(){
 
     const total = normalQuantity + morningQuantity + childrenQuantity;
 
-    if(total !== selectedSeats.length){
-        alert("Tu dois choisir exactement " + selectedSeats.length + " tarifs (un par siège sélectionné).");
+    // gestion de l'erreur du nombre de tarifs selectionnés
+   const errorDiv = document.getElementById('error-msg');
+    if (total !== selectedSeats.length) {
+        errorDiv.textContent = "Tu dois choisir exactement " + selectedSeats.length + " tarifs (un par siège sélectionné).";
+        errorDiv.classList.remove('hidden');
+        setTimeout(() => {
+            errorDiv.textContent = "";
+            errorDiv.classList.add('hidden');
+        }, 3000); // Disparaît après 3 secondes
         return;
     }
 

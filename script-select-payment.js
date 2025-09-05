@@ -43,11 +43,15 @@ document.querySelectorAll('.accordion-header').forEach(header => {
     });
 });
 
-// Pour chaque accordion-body
+// Pour chaque accordion-body uniquement si on click en dehors des input
 document.querySelectorAll('.accordion-body').forEach(body => {
-    body.addEventListener('click', function() {
-        // On referme tout
-        hideAccordions();
+    body.addEventListener('click', function(event) {
+        // On referme tout uniquement si on clique en dehors des input
+        if(!event.target.matches('input')) { // .matches() vérifie si l'élément correspond au sélecteur, renvoi booléen
+            hideAccordions();
+        }
     });
 });
+
+
 

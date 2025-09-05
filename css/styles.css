@@ -314,6 +314,13 @@ main {
   width: 34px;
 }
 
+#error-msg {
+  background-color: red;
+  color: #ffffff;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+}
+
 .opacity-filter {
   background-color: #000000;
   height: 100%;

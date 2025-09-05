@@ -1,5 +1,5 @@
 /////// On récupére les données du localStorage
-const cartSeatPrice = JSON.parse(localStorage.getItem("selectedPrices"));
+const detailSelectedPrices = JSON.parse(localStorage.getItem("selectedPrices"));
 
 
 /////// Gestion du catalogue des snacks
@@ -23,10 +23,12 @@ fetch('../snack.json')
         drinkCards.appendChild(createSnackCard("Boissons"));
 
         // création des écoutes sur ces cards
-        addSnackIntoCartByEvent("Formules");
-        addSnackIntoCartByEvent("Pop Corn et Sucreries");
-        addSnackIntoCartByEvent("Boissons");
+        updateSnackQuantity("Formules");
+        updateSnackQuantity("Pop Corn et Sucreries");
+        updateSnackQuantity("Boissons");
 
+        // ajout des snacks au panier
+        cartSnackResume();
 
 
         ////// Création d'une function pour créer les lignes de snack
@@ -67,7 +69,9 @@ fetch('../snack.json')
 
 
         ////// Création d'une fonction pour gérer les événements au click sur les snack
-        function addSnackIntoCartByEvent(key){
+        let snackQuantity = 0; // quantité de snack initial
+
+        function updateSnackQuantity(key){
             for(let i=0; i < snackList[key].length; i++){
                 const snackId = snackList[key][i].image.replace(".png","");
 
@@ -100,7 +104,7 @@ fetch('../snack.json')
 
 
         ////// Création d'une fonction pour ajouter des snacks au panier
-        function addSnackToCart(key) {
+        function cartSnackResume() {
             // selection des zone pour afficher les resultats
             const cartResume = document.getElementById("cart-resume");
             const totalCart = document.getElementById("total-cart");
@@ -111,24 +115,51 @@ fetch('../snack.json')
 
             let total = 0;
 
-            for(let i=0; i < snackList[key].length; i++){
+            // Ajout de l'affichage des billets
+            // si le tableau existe
+            if(detailSelectedPrices) {
+                // on boucle sur chaque lignes du tableau 
+                detailSelectedPrices.forEach(ticket => {
+                    // pour chaque ticket supérieur à 0
+                    if(ticket.quantity > 0){
+                        // on l'affiche dans le panier
+                        cartResume.innerHTML += `
+                        <div class="cart-item" id="${ticket.label}-resume">
+                            <p><span>${ticket.quantity} x </span>${ticket.label}</p>
+                            <span>${ (ticket.quantity * ticket.price).toFixed(2) } €</span>
+                        </div>`;
+                        total += (ticket.quantity * ticket.price);
+                    }
 
-                //récupération de l'id du snack
-                const snackId = snackList[key][i].image.replace(".png","");
+                })
 
-                // constante prix
-                const snackPrice = snackList[key][i].prix;
+            }
 
-                // constante quantité
-                const snackQuantity = parseInt(document.getElementById(snackId + "-quantity").textContent, 10);
 
-                if(snackQuantity > 0) {
-                    cartResume.innerHTML += 
-                        `<div class="cart-item" id="${snackId}-resume">
-                            <p><span>${snackQuantity} x </span>${snackList[key][i].nom}</p>
-                            <span>${ (snackQuantity * snackPrice).toFixed(2) } €</span>
-                        </div>`; // toFixed(2) permet d'afficher 2 chiffre aprés la virgule
-                    total += (snackQuantity * snackPrice);
+            const allCategories = ["Formules", "Pop Corn et Sucreries", "Boissons"];
+            // on parcours toutes les catégories pour afficher le panier complet
+            for( let k=0; k < allCategories.length; k++){
+                const key = allCategories[k];
+
+                for(let i=0; i < snackList[key].length; i++){
+
+                    //récupération de l'id du snack
+                    const snackId = snackList[key][i].image.replace(".png","");
+
+                    // constante prix
+                    const snackPrice = snackList[key][i].prix;
+
+                    // constante quantité
+                    const snackQuantity = parseInt(document.getElementById(snackId + "-quantity").textContent, 10);
+
+                    if(snackQuantity > 0) {
+                        cartResume.innerHTML += 
+                            `<div class="cart-item" id="${snackId}-resume">
+                                <p><span>${snackQuantity} x </span>${snackList[key][i].nom}</p>
+                                <span>${ (snackQuantity * snackPrice).toFixed(2) } €</span>
+                            </div>`; // toFixed(2) permet d'afficher 2 chiffre aprés la virgule
+                        total += (snackQuantity * snackPrice);
+                    }
                 }
             }
             totalCart.textContent = `${total.toFixed(2)} €`;

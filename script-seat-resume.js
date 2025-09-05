@@ -117,11 +117,16 @@ function validatePriceSeat(){
         return;
     }
 
-    localStorage.setItem("selectedPrices", JSON.stringify({
-        normalQuantitySelected: normalQuantity,
-        morningQuantitySelected: morningQuantity,
-        childrenQuantitySelected: childrenQuantity
-    }));
+    // On construit un tableau avec toutes les données avant de k'enregfistrer dans le localStorage
+    const detailSelectedPrices = [
+        {label: "Plein tarif", price: 14.90, quantity: normalQuantity},
+        {label: "Matin", price: 9.90, quantity: morningQuantity},
+        {label: "Moins de 14 ans", price: 6.50, quantity: childrenQuantity}
+    ]
+    // On enregistre les détails des prix sélectionnés dans le localStorage
+    localStorage.setItem("selectedPrices", JSON.stringify(detailSelectedPrices));
+
+    // Redirection vers la page de sélection des snacks
     window.location.href = "select_snack.html";
 }
 

@@ -1,0 +1,7 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/colors' as *;
+
+.cancel-payment{
+    padding: 1rem 2rem;
+    align-self: flex-end;
+}

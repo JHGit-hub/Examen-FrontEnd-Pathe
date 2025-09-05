@@ -4,19 +4,19 @@ const ticketsQuantityToBuy = selectedSeats.length;
 
 
 //////////////////// Affichage des tarifs selectionnés si existe
-if(localStorage.getItem("selectedPrices")) {
-    const detailSelectedPrices = JSON.parse(localStorage.getItem("selectedPrices"));
+if(localStorage.getItem("selectedTickets")) {
+    const detailSelectedTickets = JSON.parse(localStorage.getItem("selectedTickets"));
     // On boucle sur chaque lignes du tableau
-    detailSelectedPrices.forEach(price => {
+    detailSelectedTickets.forEach(ticket => {
         // On extrait les quantités du localStorage pour les inclure dans l'affichage
-        if(price.label === "Plein tarif"){
-            document.getElementById("normal-price-quantity").textContent = price.quantity; // on donne la valeur du storage
+        if(ticket.label === "Plein tarif"){
+            document.getElementById("normal-price-quantity").textContent = ticket.quantity; // on donne la valeur du storage
         }
-        if(price.label === "Matin"){
-            document.getElementById("morning-price-quantity").textContent = price.quantity; 
+        if(ticket.label === "Matin"){
+            document.getElementById("morning-price-quantity").textContent = ticket.quantity; 
         }
-        if(price.label === "Moins de 14 ans"){
-            document.getElementById("children-price-quantity").textContent = price.quantity; 
+        if(ticket.label === "Moins de 14 ans"){
+            document.getElementById("children-price-quantity").textContent = ticket.quantity; 
         }
     });
 }
@@ -135,13 +135,13 @@ function validatePriceSeat(){
     }
 
     // On construit un tableau avec toutes les données avant de k'enregfistrer dans le localStorage
-    const detailSelectedPrices = [
+    const detailSelectedTickets = [
         {label: "Plein tarif", price: 14.90, quantity: normalQuantity},
         {label: "Matin", price: 9.90, quantity: morningQuantity},
         {label: "Moins de 14 ans", price: 6.50, quantity: childrenQuantity}
     ]
     // On enregistre les détails des prix sélectionnés dans le localStorage
-    localStorage.setItem("selectedPrices", JSON.stringify(detailSelectedPrices));
+    localStorage.setItem("selectedTickets", JSON.stringify(detailSelectedTickets));
 
     // Redirection vers la page de sélection des snacks
     window.location.href = "select_snack.html";

@@ -36,14 +36,14 @@
 @use "components/badges";
 @use "components/breadcrumbs";
 @use "components/carousel";
-@use "components/dropdown";
+@use "components/accordion";
 @use "components/pagination";
 //  Import des pages spécifiques
 @use "pages/index";
 @use "pages/seat-resume";
 @use "pages/showtime";
 @use "pages/seat-selection";
-@use "pages/page-404";
+@use "pages/select-payment";
 //  Import des thèmes
 @use "themes/light";
 @use "themes/dark";

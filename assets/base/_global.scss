@@ -85,7 +85,6 @@ main{
         border-bottom: 1px solid #eeeeee;
         padding: 1.75rem;
         padding-bottom: 0rem;
-        margin-bottom: 1rem;
         #auditorium{
             @include display-flex(row, center, center);
             gap:0.5rem;
@@ -105,7 +104,7 @@ main{
     }
     .body-block{
         @include display-flex(column, space-between, center);
-        height: 89%;
+        flex:1;
         gap: 0.5rem;
     }
 }
@@ -120,6 +119,7 @@ main{
         @include display-flex(row, space-between, center);
         width:100%;
         height:100%;
+        max-height: 170px;
         background-color: #ffffff;
         padding:1rem 2rem;
         .cart-order{
@@ -130,6 +130,8 @@ main{
             #cart-resume{
                 width:100%;
                 height:100%;
+                max-height:100px;
+                overflow-y:auto;
                 .cart-item{
                     @include display-flex(row, space-between, center);
                     p{

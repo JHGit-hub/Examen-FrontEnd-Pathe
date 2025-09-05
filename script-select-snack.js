@@ -1,5 +1,5 @@
 //////////////////// On récupére les données du localStorage
-const detailSelectedPrices = JSON.parse(localStorage.getItem("selectedPrices"));
+const detailSelectedTickets = JSON.parse(localStorage.getItem("selectedTickets"));
 
 
 //////////////////// Gestion du catalogue des snacks
@@ -152,9 +152,9 @@ fetch('../snack.json')
 
             // Ajout de l'affichage des billets
             // si le tableau existe
-            if(detailSelectedPrices) {
+            if(detailSelectedTickets) {
                 // on boucle sur chaque lignes du tableau 
-                detailSelectedPrices.forEach(ticket => {
+                detailSelectedTickets.forEach(ticket => {
                     // pour chaque ticket supérieur à 0
                     if(ticket.quantity > 0){
                         // on l'affiche dans le panier

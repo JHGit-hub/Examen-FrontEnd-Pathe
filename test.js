@@ -1,160 +1,141 @@
-//////////////////// Récupération des données des places selectionnées
-const selectedSeats = JSON.parse(localStorage.getItem("selectedSeats"));
-const ticketsQuantityToBuy = selectedSeats.length;
+//////////////////// On récupére les données du localStorage
+const detailSelectedTickets = JSON.parse(localStorage.getItem("selectedTickets"));
+const detailSelectedSnacks = JSON.parse(localStorage.getItem("selectedSnacks"));
 
 
-//////////////////// Affichage des tarifs selectionnés si existe
-if(localStorage.getItem("selectedTickets")) {
-    const detailSelectedTickets = JSON.parse(localStorage.getItem("selectedTickets"));
-    // On boucle sur chaque lignes du tableau
-    detailSelectedTickets.forEach(ticket => {
-        // On extrait les quantités du localStorage pour les inclure dans l'affichage
-        if(ticket.label === "Plein tarif"){
-            document.getElementById("normal-price-quantity").textContent = ticket.quantity; // on donne la valeur du storage
-        }
-        if(ticket.label === "Matin"){
-            document.getElementById("morning-price-quantity").textContent = ticket.quantity; 
-        }
-        if(ticket.label === "Moins de 14 ans"){
-            document.getElementById("children-price-quantity").textContent = ticket.quantity; 
-        }
-    });
+////// Affiche du total du panier
+let subTotalTickets = 0;
+let subTotalSnacks = 0;
+let totalCart = 0;
+
+// calcul du total des places
+detailSelectedTickets.forEach(ticket => {
+    subTotalTickets += (ticket.price) * (ticket.quantity);
+})
+
+// calcul du total des snacks
+detailSelectedSnacks.forEach(snack =>{
+    subTotalSnacks += (snack.price) * (snack.quantity);
+})
+
+// Total du panier
+totalCart = subTotalTickets + subTotalSnacks;
+document.getElementById("total-cart").textContent = totalCart.toFixed(2) + " €";
+
+
+//////////////////// Gestion du choix de payment
+// Création d'une function pour tout refermer et n'afficher que les headers des accordions
+function hideAccordions() {
+    document.querySelectorAll(".accordion-header").forEach(header => header.classList.remove("hidden"));
+    document.querySelectorAll(".accordion-body").forEach(body => body.classList.add("hidden"));
 }
 
-//////////////////// Gestion des quantité de tickets
-let ticketQuantity = 0; // quantité total des tickets selectionnés
-
-function updateQuantity(lessBtnId, moreBtnId, QuantityId) {
-    // on récupére les zone à écouter par leur id
-    const lessBtn = document.getElementById(lessBtnId); // bouton moins
-    const moreBtn = document.getElementById(moreBtnId); // bouton plus
-    const quantityDiv = document.getElementById(QuantityId); // zone pour afficher les resultats
-
-
-    lessBtn.addEventListener("click", () => {
-        // On récupére la valeur actuelle de la quantité
-        // et on l'a converti en nombre entier de base décimale
-        let currentQuantity = parseInt(quantityDiv.textContent, 10);
-
-        // on verifie que la quantité est supérieur à 0 pour ne pas avoir de quanité négative
-        if( currentQuantity > 0) {
-            quantityDiv.textContent = currentQuantity - 1;
-            ticketQuantity = ticketQuantity - 1;
-            cartResume();
-        }
-
+// Pour chaque accordion-header (bouton)
+document.querySelectorAll('.accordion-header').forEach(header => {
+    header.addEventListener('click', function() {
+        // On referme tout
+        hideAccordions();
+        // On cache ce header
+        this.classList.add("hidden"); // this selectionne le header cliqué
+        // On affiche le body associé
+        const body = this.nextElementSibling; // .nextElementSibling selectionne la balise suivante dans le DOM qui a le même parent
+        body.classList.remove('hidden');
     });
+});
 
-    moreBtn.addEventListener("click", () => {
-        // On récupére la valeur actuelle de la quantité
-        let currentQuantity = parseInt(quantityDiv.textContent, 10);
-        if(ticketQuantity < ticketsQuantityToBuy){
-            quantityDiv.textContent = currentQuantity + 1;
-            ticketQuantity = ticketQuantity + 1;
-            cartResume();
-        } else {
-            alert("La quantité de tickets à acheter ne peut pas dépasser " + ticketsQuantityToBuy);
+// Pour chaque accordion-body uniquement si on click en dehors des input
+document.querySelectorAll('.accordion-body').forEach(body => {
+    body.addEventListener('click', function(event) {
+        // On referme tout uniquement si on clique en dehors des input
+        if(!event.target.matches('input')) { // .matches() vérifie si l'élément correspond au sélecteur, renvoi booléen
+            hideAccordions();
         }
     });
-}
+});
 
 
-//////////////////// Gestion des prix
-function cartResume(){
-    // selection des zone pour afficher les resultats
-    const cartResume = document.getElementById("cart-resume");
-    const totalCart = document.getElementById("total-cart");
-
-    // constante prix
-    const normalPrice = 14.90;
-    const morningPrice = 9.90;
-    const childrenPrice = 6.50;
-
-    // constante des quantités
-    const normalQuantity = parseInt(document.getElementById("normal-price-quantity").textContent, 10);
-    const morningQuantity = parseInt(document.getElementById("morning-price-quantity").textContent, 10);
-    const childrenQuantity = parseInt(document.getElementById("children-price-quantity").textContent, 10);
-
-
-    // On réinitialise le panier
-    cartResume.innerHTML = "";
-    totalCart.textContent = "";
-
-    // Affichage du récapitulatif dans le panier
-    if(normalQuantity > 0){
-        cartResume.innerHTML += `<div class="cart-item" id="normal-price-resume">
-                                    <p><span>${normalQuantity} x </span>Plein tarif</p>
-                                    <span>${ (normalQuantity * normalPrice).toFixed(2) } €</span>
-                                </div>`; // toFixed(2) permet d'afficher 2 chiffre aprés la virgule
-    };
-
-    if(morningQuantity > 0){
-        cartResume.innerHTML += `<div class="cart-item" id="morning-price-resume">
-                                    <p><span>${morningQuantity} x </span>Matin</p>
-                                    <span>${ (morningQuantity * morningPrice).toFixed(2) } €</span>
-                                </div>`;
-    };
-
-    if(childrenQuantity > 0){
-        cartResume.innerHTML += `<div class="cart-item" id="children-price-resume">
-                                    <p><span>${childrenQuantity} x </span>Moins de 14 ans</p>
-                                    <span>${ (childrenQuantity * childrenPrice).toFixed(2) } €</span>
-                                </div>`;
-    };
-
-
-
-
-    const total = (normalQuantity * normalPrice) + (morningQuantity * morningPrice) + (childrenQuantity * childrenPrice);
-    totalCart.textContent = `${total.toFixed(2)} €`;
-}
-
-updateQuantity("normal-price-less", "normal-price-more", "normal-price-quantity");
-updateQuantity("morning-price-less", "morning-price-more", "morning-price-quantity");
-updateQuantity("children-price-less", "children-price-more", "children-price-quantity");
-
-cartResume();
-
-
-//////////////////// Validation des tarifs
-// Validation de la selection des siéges
+//////////////////// Gestion de validation du paiement
+const errorDiv = document.getElementById('error-msg');
 // Selection de la zone a écouter
-let continueReservation = document.getElementById("continue-reservation");
+const continueReservation = document.getElementById("continue-reservation");
 
-// Création de la fonction de validation des places
-function validatePriceSeat(){
-    const normalQuantity = parseInt(document.getElementById("normal-price-quantity").textContent, 10);
-    const morningQuantity = parseInt(document.getElementById("morning-price-quantity").textContent, 10);
-    const childrenQuantity = parseInt(document.getElementById("children-price-quantity").textContent, 10);
+// Création de la fonction de validation du paiement
+function validatePayment(){
+    // On réinitialise le message d'erreur
+    errorDiv.innerHTML = "";
 
-    const total = normalQuantity + morningQuantity + childrenQuantity;
+    let hasError = false;
 
-   const errorDiv = document.getElementById('error-msg');
-    if (total !== selectedSeats.length) {
-        errorDiv.textContent = "Tu dois choisir exactement " + selectedSeats.length + " tarifs (un par siège sélectionné).";
+    // On récupére les formulaires via leurs id
+    const formCB = document.getElementById("payment-cb");
+    const formGpay = document.getElementById("payment-gpay");
+
+    // On déclare les constantes regex
+    const emailGpayRegex =  /^[^@\s]+@[^@\s]+.[^@\s]+$/; // doit etre un email
+    const cardNumberRegex = /^\d{16}$/; // regex simple pour numéro de carte composé de 16 chiffres
+    const dateCardRegex = /^\d{2}\/\d{2}$/; // regex date 2 paires de chiffres séparées par /
+    const cryptoCardRegex = /^\d{3}$/; // regex cryptogramme 3 chiffres
+
+
+    // On verifie qu'un mode de paiement a été choisi
+    if(formCB.classList.contains("hidden") && formGpay.classList.contains("hidden")){ // les 2 formulaires sont cachés
+        errorDiv.innerHTML += "<p>Veuillez choisir un mode de paiement</p>";
+        hasError = true;
+    }
+
+    if(formCB && !formCB.classList.contains("hidden")){ // formCB existe et n'est pas caché
+        // On récupére les champs via leurs id
+        const cardNumber = document.getElementById("card-number").value.trim();
+        const dateCard = document.getElementById("date-card").value.trim();
+        const cryptoCard = document.getElementById("crypto-card").value.trim();
+
+        if(!cardNumberRegex.test(cardNumber)){
+            errorDiv.innerHTML += "<p>numéro de Carte bleu Incorrect</p>";
+            hasError = true;
+        }
+        if(!dateCardRegex.test(dateCard)){
+            errorDiv.innerHTML += "<p>date de Carte bleu Incorrect</p>";
+            hasError = true;
+        }
+        if(!cryptoCardRegex.test(cryptoCard)){
+            errorDiv.innerHTML += "<p>cryptogramme de Carte bleu Incorrect</p>";
+            hasError = true;
+        }
+    }
+
+    if(formGpay && !formGpay.classList.contains("hidden")){ // formGpay existe et n'est pas caché
+        // On récupére les champs via leurs id
+        const emailGpay = document.getElementById("email-gpay").value;
+        const passwordGpay = document.getElementById("password-gpay").value;
+
+        if(!emailGpayRegex.test(emailGpay)){
+            errorDiv.innerHTML += "<p>email Google Pay Incorrect</p>";
+            hasError = true;
+        }
+        if(passwordGpay === ""){
+            errorDiv.innerHTML += "<p>mot de passe Google Pay Incorrect</p>";
+            hasError = true;
+        }
+    }
+
+    if(hasError){
         errorDiv.classList.remove('hidden');
         setTimeout(() => {
-            errorDiv.textContent = "";
+            errorDiv.innerHTML = "";
             errorDiv.classList.add('hidden');
         }, 3000); // Disparaît après 3 secondes
         return;
     }
 
-    // On construit un tableau avec toutes les données avant de k'enregfistrer dans le localStorage
-    const detailSelectedTickets = [
-        {label: "Plein tarif", price: 14.90, quantity: normalQuantity},
-        {label: "Matin", price: 9.90, quantity: morningQuantity},
-        {label: "Moins de 14 ans", price: 6.50, quantity: childrenQuantity}
-    ]
-    // On enregistre les détails des prix sélectionnés dans le localStorage
-    localStorage.setItem("selectedTickets", JSON.stringify(detailSelectedTickets));
 
-    // Redirection vers la page de sélection des snacks
-    window.location.href = "select_snack.html";
+
+
+    // on enregistre dans le localStorage le total du panier
+        localStorage.setItem("totalCart", JSON.stringify(totalCart)); 
+
+    // on ouvre la page suivante
+        window.location.href = "resume_reservation.html";
 }
 
 // On écoute le click sur le bouton de réservation
-continueReservation.addEventListener("click", validatePriceSeat);
-
-
-
+continueReservation.addEventListener("click", validatePayment);

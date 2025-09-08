@@ -51,6 +51,7 @@
                     <div class="body-block">
                         <div class="payment-section">
                             <h3>Paiement sécurisé</h3>
+                            <div id="error-msg" class="hidden"></div>
                             <div class="payment-method">
                                 <h5>Choisir son mode de paiement</h5>
                                 <div class="payment-row">
@@ -64,7 +65,7 @@
                                             </div>
                                         </div>
                                     </button>
-                                    <div class="accordion-body hidden">
+                                    <form class="accordion-body hidden" id="payment-cb">
                                         <div class="payment-header">
                                             <p>Carte Bancaire</p>
                                             <div class="payment-icon">
@@ -76,20 +77,20 @@
                                         <div class="payment-details">
                                             <div class="label-form">
                                                 <p>Numéro de carte</p>
-                                                <input type="text" placeholder="1234 5678 9012 3456">
+                                                <input type="text" id="card-number"placeholder="1234 5678 9012 3456">
                                             </div>
                                             <div class="crypto-card">
                                                 <div class="label-form">
                                                     <p>Date d'expiration</p>
-                                                    <input type="text" placeholder="MM/AA">
+                                                    <input type="text" id="date-card" placeholder="MM/AA">
                                                 </div>
                                                 <div class="label-form">
                                                     <p>Cryptogramme</p>
-                                                    <input type="text" placeholder="123">
+                                                    <input type="text" id="crypto-card" placeholder="123">
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </form>
                                 </div>
                                 <div class="payment-row">
                                     <button class="accordion-header">
@@ -100,7 +101,7 @@
                                             </div>
                                         </div>
                                     </button>
-                                    <div class="accordion-body hidden">
+                                    <form class="accordion-body hidden" id="payment-gpay">
                                         <div class="payment-header">
                                             <p>Google Pay</p>
                                             <div class="payment-icon">
@@ -110,14 +111,14 @@
                                         <div class="payment-details">
                                             <div class="label-form">
                                                 <p>Mail du compte</p>
-                                                <input type="text" placeholder="exemple@gmail.com">
+                                                <input type="email" id="email-gpay" placeholder="exemple@gmail.com">
                                             </div>
                                             <div class="label-form">
                                                 <p>Mot de passe</p>
-                                                <input type="text" placeholder="••••••••">
+                                                <input type="text" id="password-gpay" placeholder="••••••••">
                                             </div>
                                         </div>
-                                    </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>

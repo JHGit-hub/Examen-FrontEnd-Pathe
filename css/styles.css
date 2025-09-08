@@ -54,6 +54,32 @@ a {
   text-decoration: none;
 }
 
+@media (min-width: 1280px) {
+  h1 {
+    font-size: 9rem;
+  }
+  sub.subtitle-h1 {
+    font-size: 4.68rem;
+  }
+  h2 {
+    font-size: 3rem;
+  }
+  h3 {
+    font-size: 2.81rem;
+  }
+  h4 {
+    font-size: 0.5rem;
+  }
+  h5 {
+    font-size: 1.68rem;
+  }
+  h6 {
+    font-size: 1.875rem;
+  }
+  p {
+    font-size: 1.125rem;
+  }
+}
 * {
   margin: 0;
   padding: 0;

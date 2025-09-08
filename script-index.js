@@ -57,3 +57,19 @@ function cancelReservation(){
 if(cancelBtn){
     cancelBtn.addEventListener("click", cancelReservation);
 }
+
+
+//////////////////// Affichage du bouton de reprise de la réservation
+////// Récupération du localStorage
+let movieSelected = JSON.parse(localStorage.getItem("movieSelected"));
+
+const BannerContinueReservation = document.getElementById("banner-continue-reservation");
+// on verifie si moveiSelected existe
+if(movieSelected){
+BannerContinueReservation.innerHTML = `<button class="continue-btn">
+                                            <span>Reprendre la reservation</span>
+                                            <img src="/assets/images/icons/arrow.png"
+                                                alt="flèche vers la reprise de la réservation des places de cinéma"
+                                                title="Reprendre la reservation des places de cinéma Pathé">
+                                        </button>`
+}

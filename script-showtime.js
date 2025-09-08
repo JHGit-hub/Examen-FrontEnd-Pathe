@@ -164,7 +164,7 @@ fetch('../films.json')
                 for(let j=0; j < list[k].séances.length; j++){
 
                     //// divShowtimeCard -> inclus dans divShowtimeRow
-                    divShowtimeCard.push(document.createElement('div'));
+                    divShowtimeCard.push(document.createElement('button'));
                     divShowtimeCard[j].className = "showtime-card";
                     divShowtimeCard[j].id = `${list[k].titre}-${list[k].séances[j].horaire}`;
 

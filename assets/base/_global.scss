@@ -4,6 +4,9 @@
 
 body{
     @include display-flex(column, center, center);
+    button{
+        border: none;
+    }
 }
 
 main{

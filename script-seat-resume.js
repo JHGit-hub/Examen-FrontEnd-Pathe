@@ -29,6 +29,7 @@ function updateQuantity(lessBtnId, moreBtnId, QuantityId) {
     const lessBtn = document.getElementById(lessBtnId); // bouton moins
     const moreBtn = document.getElementById(moreBtnId); // bouton plus
     const quantityDiv = document.getElementById(QuantityId); // zone pour afficher les resultats
+    const errorDiv = document.getElementById('error-msg'); // div d'affichage des erreurs
 
 
     lessBtn.addEventListener("click", () => {
@@ -53,7 +54,13 @@ function updateQuantity(lessBtnId, moreBtnId, QuantityId) {
             ticketQuantity = ticketQuantity + 1;
             cartResume();
         } else {
-            alert("La quantité de tickets à acheter ne peut pas dépasser " + ticketsQuantityToBuy);
+            errorDiv.textContent = "La quantité de tickets à acheter ne peut pas dépasser " + ticketsQuantityToBuy;
+            errorDiv.classList.remove('hidden');
+            setTimeout(() => {
+                errorDiv.textContent = "";
+                errorDiv.classList.add('hidden');
+            }, 3000); // Disparaît après 3 secondes
+            return;
         }
     });
 }
@@ -130,7 +137,7 @@ function validatePriceSeat(){
     const total = normalQuantity + morningQuantity + childrenQuantity;
 
     // gestion de l'erreur du nombre de tarifs selectionnés
-   const errorDiv = document.getElementById('error-msg');
+    const errorDiv = document.getElementById('error-msg');
     if (total !== selectedSeats.length) {
         errorDiv.textContent = "Tu dois choisir exactement " + selectedSeats.length + " tarifs (un par siège sélectionné).";
         errorDiv.classList.remove('hidden');

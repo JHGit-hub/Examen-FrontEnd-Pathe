@@ -42,15 +42,16 @@
                 <div class="block-selection">
                     <div class="header-block">
                         <div id="auditorium"></div>
-                        <div class="back-btn" id="back-btn">
+                        <button class="back-btn" id="back-btn">
                             <img src="../assets/images/icons/arrow.png"
                                 alt="flèche de retour vers la page de sélection de film">
                             <span>Retour</span>
-                        </div>
+                        </button>
                     </div>
                     <div class="body-block">
                         <h3>Sélectionnez vos places</h3>
                         <p id="free-seats"></p>
+                        <div id="error-msg" class="hidden"></div>
                         <div id="theater" class="theater"></div>
                         <div class="screen">
                             <div class="screen-bar"></div>
@@ -74,10 +75,10 @@
                             </div>
                             <div id="seat-reserved"></div>
                         </div>
-                        <div id="make-reservation">
+                        <button id="make-reservation">
                             <p>Réserver mes places</p>
                             <img src="../assets/images/icons/right-arrow.png" alt="flèche de réservation">
-                        </div>
+                        </button>
                     </div>
                 </div>
             </section>

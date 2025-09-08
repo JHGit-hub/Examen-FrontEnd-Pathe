@@ -132,6 +132,7 @@ allSeats.forEach(seat => {
 });
 
 // Validation de la selection des siéges
+const errorDiv = document.getElementById('error-msg');
 // Selection de la zone a écouter
 let makeReservation = document.getElementById("make-reservation");
 
@@ -143,7 +144,12 @@ function validateSelectedSeat(){
         // on ouvre la page suivante
         window.location.href = "seat_resume.html";
     } else {
-        alert("aucun siége n'est sélectionné");
+        errorDiv.textContent = "aucun siége n'est sélectionné";
+        errorDiv.classList.remove('hidden');
+        setTimeout(() => {
+            errorDiv.textContent = "";
+            errorDiv.classList.add('hidden');
+        }, 3000); // Disparaît après 3 secondes
         return;
     }
 }
@@ -156,6 +162,7 @@ makeReservation.addEventListener("click", validateSelectedSeat);
 
 
 //////////////////// Affichage des places selectionnées si existe
+
 ////  On boucle sur les places selectionnées pour les afficher
 selectedSeats.forEach(seatId => {
     let seat = document.getElementById(seatId);

@@ -39,3 +39,15 @@
     gap: 1rem;
     margin: 4rem 0;
 }
+
+
+@media (min-width:1280px){
+    .filter-row .filter-bar{
+        #filter-input {
+            height: 55px;
+        }
+        img{
+            width: 31px;
+        }
+    }
+}

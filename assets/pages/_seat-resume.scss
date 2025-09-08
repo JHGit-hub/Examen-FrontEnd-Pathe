@@ -77,7 +77,40 @@
 }
 
 
-
-
-
-
+@media (min-width: 1280px) {
+    .select-price{
+        .cine-pass{
+            top:28%;
+            left:4%;
+            img{
+                width:75px;
+            }
+        }
+        .seat-price{
+            .row-header{
+                p{
+                    font-size: 1.125rem;
+                }
+            }
+            .row-body{
+                .price-type{
+                    p{
+                        font-size: 1.125rem;
+                    }
+                    .price-bar{
+                        height:2px;
+                    }
+                    .ticket-quantity{
+                        img{
+                            width:25px;
+                            cursor: pointer;
+                        }
+                        p, .quantity-number{
+                            font-size: 1.875rem;
+                        }
+                    }   
+                }
+            }
+        }
+    }
+}

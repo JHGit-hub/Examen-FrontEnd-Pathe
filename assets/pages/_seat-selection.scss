@@ -75,4 +75,50 @@
 }
 
 
+@media (min-width: 1280px) {
+    #free-seats p{
+        font-size: 1.5rem;
+    }
 
+    .screen{
+        height: 45px;
+        .screen-bar{
+            height:15px;
+        }
+        p{
+            font-size: 1.875rem;
+        }
+
+    }
+
+    .seat-information{
+        .seat-legend{
+            height: 81px;
+            .seat-picto{
+                span{
+                    font-size: 1.125rem;
+                }
+                img {
+                    width:30px;
+                }
+            }
+        }
+        #seat-reserved{
+            height: 81px;
+            width:auto;
+            p{
+                font-size: 1.125rem;
+            }
+        }
+    }
+
+    #make-reservation{
+        height:99px;
+        p{
+            font-size: 1.875rem;
+        }
+        img{
+            width: 51px;
+        }
+    }
+}

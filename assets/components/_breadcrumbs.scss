@@ -38,3 +38,18 @@
         text-decoration: underline;
     }
 }
+
+
+@media (min-width: 1280px){
+    .breadcrumb{
+        a, span{
+            font-size: 1.125rem;
+        }
+    }
+
+.breadcrumb-block{
+        a, span{
+            font-size: 1.125rem;
+        }
+    }
+}

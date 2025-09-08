@@ -5,7 +5,7 @@
 .theater{
     display:grid;
     grid-template-columns: repeat(19, minmax(20px, 1fr));
-    gap: 4px;
+    gap: 3px;
     justify-content: center;
     padding: 1rem;
     width:100%;
@@ -37,4 +37,16 @@
 
 .available:hover, .selected:hover {
     transform: scale(1.3); // leger effet de zoom au survol
+}
+
+@media (min-width: 1280px) {
+    .theater{
+        grid-template-columns: repeat(19, minmax(30px, 1fr));
+    }
+
+    .seat {
+        img{
+        max-width:30px;
+        }
+    }
 }

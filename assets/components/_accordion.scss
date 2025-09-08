@@ -91,3 +91,22 @@
         }
     }
 }
+
+@media (min-width: 1280px) {
+    .payment-section .payment-method .payment-row .accordion-body .payment-details{
+        p{
+            font-size: 0.75rem;
+        }
+        input {
+            font-size: 0.9rem;
+        }
+    }
+    .payment-header{
+        p{
+            font-size:1.5rem;
+        }
+        .payment-icon img{
+            width:52px;
+        }
+    }
+}

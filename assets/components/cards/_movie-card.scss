@@ -63,3 +63,31 @@
     padding: 0.2rem 0.5rem;
     border-radius: 4px;
 }
+
+
+@media (min-width:1280px){
+    .movie-card {
+        .movie-img img {
+            width: 90px;
+            height: 120px;
+        }
+        .movie-text {
+            .title-movie h3 {
+                font-size: 1.875rem;
+            }
+            .detail-movie {
+                font-size: 1.125rem;
+                .age-mini {
+                    img {
+                        width: 27px;
+                    }
+                }
+                .violence-alert {
+                    img {
+                        width: 36px;
+                    }
+                }
+            }
+        }
+    }
+}

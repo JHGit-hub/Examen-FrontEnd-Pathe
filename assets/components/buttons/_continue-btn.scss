@@ -27,3 +27,16 @@
 .continue-btn:hover{
     box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.5);
 }
+
+
+@media (min-width:1280px){
+    .continue-btn{
+        span {
+            font-size: 1.31rem;
+        }
+        img{
+            width: 16px;
+            height: 16px;
+        }
+    }
+}

@@ -43,3 +43,29 @@
         }
     }
 }
+
+@media (min-width:1280px){
+    .showtime-row{
+        .showtime-card{
+            @include display-flex(column, flex-end, stretch);
+            width:237px;
+            height:156px;
+            .movie-format img{
+                width: 45px;
+            }
+            .detail-showtime {
+                .schedule{
+                    p{
+                        font-size: 2.43rem;
+                    }
+                    span{
+                        font-size: 1.2rem;
+                    }
+                }
+                .handicap img{
+                    width: 21px;
+                }
+            }
+        }
+    }
+}

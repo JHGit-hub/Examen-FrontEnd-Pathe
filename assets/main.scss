@@ -34,11 +34,9 @@
 @use "components/modals/modal";
 //  Import others
 @use "components/pointer";
-@use "components/badges";
 @use "components/breadcrumbs";
 @use "components/carousel";
 @use "components/accordion";
-@use "components/pagination";
 //  Import des pages spécifiques
 @use "pages/index";
 @use "pages/seat-resume";

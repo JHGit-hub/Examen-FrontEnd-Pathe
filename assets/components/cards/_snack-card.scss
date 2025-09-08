@@ -60,3 +60,42 @@
         }
     }
 }
+
+@media (min-width:1280px){
+    .snack-selection{
+        .row-selection{
+            h5{
+                font-size: 1.5rem;
+             }
+            .snack-row{
+                .snack-card{
+                    @include display-flex(column, center, center);
+                    width:141px;
+                    height:156px;
+                    .image-snack img{
+                        width:67px;
+                    }
+                    .detail-snack{
+                        p{
+                            font-size: 0.75rem;
+                        }
+                        .add-snack{
+                            span{
+                                font-size: 0.75rem;
+                            }
+                            .snack-quantity {
+                                img{
+                                    width: 15px;
+                                }
+                                p, .quantity-number{
+                                    font-size: 0.75rem;
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+}

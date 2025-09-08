@@ -28,3 +28,15 @@
     outline: 2px solid #FEB91E; // bordure de couleur
     outline-offset: 2px; // décalage de 2 px entre le bouton et la bordure
 }
+
+@media (min-width:1280px){
+    .back-btn{
+        span, a{
+            font-size: 1.31rem;
+        }
+        img{
+            width: 16px;
+            height: 16px;
+        }
+    }
+}

@@ -233,3 +233,65 @@ main{
     left: 0;
     z-index: 1;
 }
+
+@media (min-width: 1280px) {
+    .block-movie-selected .showtime-resume-description .showtime-resume-detail #showtime-resume-schedule {
+        p{
+            font-size: 1.5rem;
+        }
+        span{
+            font-size: 0.93rem;
+        }
+    }
+
+
+    .block-selection .header-block #auditorium{
+        p{
+            font-size:1.5rem;
+        }
+        img{
+            width:19px;
+        }
+    }
+
+
+    .cart{
+        .body-cart{
+            max-height: 255px;
+            .cart-order #cart-resume .cart-item{
+                p, span{
+                    font-size: 1.5rem;
+                }
+                .bin-img{
+                    width: 28px;
+                    height: 28px;
+                    img{
+                        width: 16px;
+                    }
+                }
+                .div-empty{
+                    width:28px;
+                }
+            }
+        }
+        .footer-cart{
+            height:99px;
+            .resume-total{
+                p{
+                    font-size: 1.5rem;
+                }
+                span{
+                    font-size: 2.06rem;
+                }
+            }
+            #continue-reservation{
+                p{
+                    font-size: 1.875rem;
+                }
+                img{
+                    width: 51px;
+                }
+            }
+        }
+    }
+}

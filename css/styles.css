@@ -68,7 +68,7 @@ a {
     font-size: 2.81rem;
   }
   h4 {
-    font-size: 0.5rem;
+    font-size: 1.5rem;
   }
   h5 {
     font-size: 1.68rem;
@@ -362,6 +362,51 @@ main {
   z-index: 1;
 }
 
+@media (min-width: 1280px) {
+  .block-movie-selected .showtime-resume-description .showtime-resume-detail #showtime-resume-schedule p {
+    font-size: 1.5rem;
+  }
+  .block-movie-selected .showtime-resume-description .showtime-resume-detail #showtime-resume-schedule span {
+    font-size: 0.93rem;
+  }
+  .block-selection .header-block #auditorium p {
+    font-size: 1.5rem;
+  }
+  .block-selection .header-block #auditorium img {
+    width: 19px;
+  }
+  .cart .body-cart {
+    max-height: 255px;
+  }
+  .cart .body-cart .cart-order #cart-resume .cart-item p, .cart .body-cart .cart-order #cart-resume .cart-item span {
+    font-size: 1.5rem;
+  }
+  .cart .body-cart .cart-order #cart-resume .cart-item .bin-img {
+    width: 28px;
+    height: 28px;
+  }
+  .cart .body-cart .cart-order #cart-resume .cart-item .bin-img img {
+    width: 16px;
+  }
+  .cart .body-cart .cart-order #cart-resume .cart-item .div-empty {
+    width: 28px;
+  }
+  .cart .footer-cart {
+    height: 99px;
+  }
+  .cart .footer-cart .resume-total p {
+    font-size: 1.5rem;
+  }
+  .cart .footer-cart .resume-total span {
+    font-size: 2.06rem;
+  }
+  .cart .footer-cart #continue-reservation p {
+    font-size: 1.875rem;
+  }
+  .cart .footer-cart #continue-reservation img {
+    width: 51px;
+  }
+}
 header {
   width: 100%;
   display: flex;
@@ -372,7 +417,7 @@ header {
 .theater {
   display: grid;
   grid-template-columns: repeat(19, minmax(20px, 1fr));
-  gap: 4px;
+  gap: 3px;
   justify-content: center;
   padding: 1rem;
   width: 100%;
@@ -406,6 +451,14 @@ header {
   transform: scale(1.3);
 }
 
+@media (min-width: 1280px) {
+  .theater {
+    grid-template-columns: repeat(19, minmax(30px, 1fr));
+  }
+  .seat img {
+    max-width: 30px;
+  }
+}
 .primary-btn {
   display: flex;
   flex-direction: row;
@@ -431,6 +484,15 @@ header {
   box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.5);
 }
 
+@media (min-width: 1280px) {
+  .primary-btn {
+    font-size: 1.96rem;
+  }
+  .primary-btn img {
+    width: 33px;
+    height: 33px;
+  }
+}
 .secondary-btn {
   display: flex;
   flex-direction: row;
@@ -495,6 +557,15 @@ header {
   outline-offset: 2px;
 }
 
+@media (min-width: 1280px) {
+  .back-btn span, .back-btn a {
+    font-size: 1.31rem;
+  }
+  .back-btn img {
+    width: 16px;
+    height: 16px;
+  }
+}
 .filter-btn {
   display: flex;
   flex-direction: row;
@@ -511,6 +582,13 @@ header {
   text-transform: capitalize;
 }
 
+@media (min-width: 1280px) {
+  .filter-btn {
+    width: 172px;
+    height: 55px;
+    font-size: 1.5rem;
+  }
+}
 .backtotop {
   display: flex;
   flex-direction: row;
@@ -530,6 +608,15 @@ header {
   width: 21px;
 }
 
+@media (min-width: 1280px) {
+  .backtotop {
+    width: 66px;
+    height: 66px;
+  }
+  .backtotop img {
+    width: 31px;
+  }
+}
 .cancel-btn {
   display: flex;
   flex-direction: row;
@@ -546,6 +633,11 @@ header {
   font-size: 0.875rem;
 }
 
+@media (min-width: 1280px) {
+  .cancel-btn span {
+    font-size: 1.31rem;
+  }
+}
 .add-btn {
   display: flex;
   flex-direction: row;
@@ -567,6 +659,11 @@ header {
   font-size: 0.875rem;
 }
 
+@media (min-width: 1280px) {
+  .add-btn a {
+    font-size: 1.31rem;
+  }
+}
 .continue-btn {
   display: flex;
   flex-direction: row;
@@ -598,6 +695,15 @@ header {
   box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.5);
 }
 
+@media (min-width: 1280px) {
+  .continue-btn span {
+    font-size: 1.31rem;
+  }
+  .continue-btn img {
+    width: 16px;
+    height: 16px;
+  }
+}
 .movie-card {
   display: flex;
   flex-direction: row;
@@ -662,6 +768,24 @@ header {
   border-radius: 4px;
 }
 
+@media (min-width: 1280px) {
+  .movie-card .movie-img img {
+    width: 90px;
+    height: 120px;
+  }
+  .movie-card .movie-text .title-movie h3 {
+    font-size: 1.875rem;
+  }
+  .movie-card .movie-text .detail-movie {
+    font-size: 1.125rem;
+  }
+  .movie-card .movie-text .detail-movie .age-mini img {
+    width: 27px;
+  }
+  .movie-card .movie-text .detail-movie .violence-alert img {
+    width: 36px;
+  }
+}
 .showtime-row {
   display: flex;
   flex-direction: row;
@@ -713,6 +837,28 @@ header {
   width: 14px;
 }
 
+@media (min-width: 1280px) {
+  .showtime-row .showtime-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: stretch;
+    width: 237px;
+    height: 156px;
+  }
+  .showtime-row .showtime-card .movie-format img {
+    width: 45px;
+  }
+  .showtime-row .showtime-card .detail-showtime .schedule p {
+    font-size: 2.43rem;
+  }
+  .showtime-row .showtime-card .detail-showtime .schedule span {
+    font-size: 1.2rem;
+  }
+  .showtime-row .showtime-card .detail-showtime .handicap img {
+    width: 21px;
+  }
+}
 .snack-selection {
   display: flex;
   flex-direction: column;
@@ -787,6 +933,34 @@ header {
   color: #000000;
 }
 
+@media (min-width: 1280px) {
+  .snack-selection .row-selection h5 {
+    font-size: 1.5rem;
+  }
+  .snack-selection .row-selection .snack-row .snack-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 141px;
+    height: 156px;
+  }
+  .snack-selection .row-selection .snack-row .snack-card .image-snack img {
+    width: 67px;
+  }
+  .snack-selection .row-selection .snack-row .snack-card .detail-snack p {
+    font-size: 0.75rem;
+  }
+  .snack-selection .row-selection .snack-row .snack-card .detail-snack .add-snack span {
+    font-size: 0.75rem;
+  }
+  .snack-selection .row-selection .snack-row .snack-card .detail-snack .add-snack .snack-quantity img {
+    width: 15px;
+  }
+  .snack-selection .row-selection .snack-row .snack-card .detail-snack .add-snack .snack-quantity p, .snack-selection .row-selection .snack-row .snack-card .detail-snack .add-snack .snack-quantity .quantity-number {
+    font-size: 0.75rem;
+  }
+}
 #pointer {
   display: none;
   position: fixed;
@@ -845,6 +1019,14 @@ header {
   text-decoration: underline;
 }
 
+@media (min-width: 1280px) {
+  .breadcrumb a, .breadcrumb span {
+    font-size: 1.125rem;
+  }
+  .breadcrumb-block a, .breadcrumb-block span {
+    font-size: 1.125rem;
+  }
+}
 .slider {
   position: absolute;
   width: 100%;
@@ -969,6 +1151,20 @@ header {
   width: 35px;
 }
 
+@media (min-width: 1280px) {
+  .payment-section .payment-method .payment-row .accordion-body .payment-details p {
+    font-size: 0.75rem;
+  }
+  .payment-section .payment-method .payment-row .accordion-body .payment-details input {
+    font-size: 0.9rem;
+  }
+  .payment-header p {
+    font-size: 1.5rem;
+  }
+  .payment-header .payment-icon img {
+    width: 52px;
+  }
+}
 .hero-banner {
   width: 100%;
   padding: 2.75rem 3.75rem;
@@ -1093,6 +1289,31 @@ header {
   width: 81%;
 }
 
+@media (min-width: 1280px) {
+  .select-price .cine-pass {
+    top: 28%;
+    left: 4%;
+  }
+  .select-price .cine-pass img {
+    width: 75px;
+  }
+  .select-price .seat-price .row-header p {
+    font-size: 1.125rem;
+  }
+  .select-price .seat-price .row-body .price-type p {
+    font-size: 1.125rem;
+  }
+  .select-price .seat-price .row-body .price-type .price-bar {
+    height: 2px;
+  }
+  .select-price .seat-price .row-body .price-type .ticket-quantity img {
+    width: 25px;
+    cursor: pointer;
+  }
+  .select-price .seat-price .row-body .price-type .ticket-quantity p, .select-price .seat-price .row-body .price-type .ticket-quantity .quantity-number {
+    font-size: 1.875rem;
+  }
+}
 .navbar {
   display: flex;
   flex-direction: row;
@@ -1143,6 +1364,14 @@ header {
   margin: 4rem 0;
 }
 
+@media (min-width: 1280px) {
+  .filter-row .filter-bar #filter-input {
+    height: 55px;
+  }
+  .filter-row .filter-bar img {
+    width: 31px;
+  }
+}
 #free-seats p {
   font-family: "heebo-regular";
   font-size: 1rem;
@@ -1232,6 +1461,45 @@ header {
   width: 34px;
 }
 
+@media (min-width: 1280px) {
+  #free-seats p {
+    font-size: 1.5rem;
+  }
+  .screen {
+    height: 45px;
+  }
+  .screen .screen-bar {
+    height: 15px;
+  }
+  .screen p {
+    font-size: 1.875rem;
+  }
+  .seat-information .seat-legend {
+    height: 81px;
+  }
+  .seat-information .seat-legend .seat-picto span {
+    font-size: 1.125rem;
+  }
+  .seat-information .seat-legend .seat-picto img {
+    width: 30px;
+  }
+  .seat-information #seat-reserved {
+    height: 81px;
+    width: auto;
+  }
+  .seat-information #seat-reserved p {
+    font-size: 1.125rem;
+  }
+  #make-reservation {
+    height: 99px;
+  }
+  #make-reservation p {
+    font-size: 1.875rem;
+  }
+  #make-reservation img {
+    width: 51px;
+  }
+}
 .cancel-payment {
   padding: 1rem 2rem;
   align-self: flex-end;
@@ -1321,6 +1589,21 @@ header {
   font-family: "heebo-regular";
   font-size: 1rem;
   color: #6a6a6a;
+}
+
+@media (min-width: 1280px) {
+  .section-resume-reservation .resume-reservation .resume-ticket h4 {
+    font-size: 1.5rem;
+  }
+  .section-resume-reservation .resume-reservation .resume-ticket h6 {
+    font-size: 2.06rem;
+  }
+  .section-resume-reservation .resume-reservation .resume-ticket .qr-code img {
+    width: 153px;
+  }
+  .thanks-msg p {
+    font-size: 1.5rem;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */

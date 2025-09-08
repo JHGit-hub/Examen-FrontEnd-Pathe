@@ -24,3 +24,13 @@
 .primary-btn:hover{
     box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.5);
 }
+
+@media (min-width:1280px){
+    .primary-btn{
+        font-size:1.96rem;
+        img{
+            width:33px;
+            height:33px;
+        }
+    }
+}

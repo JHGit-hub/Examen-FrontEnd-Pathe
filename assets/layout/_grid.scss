@@ -39,7 +39,7 @@
     transform: scale(1.3); // leger effet de zoom au survol
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1300px) {
     .theater{
         grid-template-columns: repeat(19, minmax(30px, 1fr));
     }

@@ -23,7 +23,8 @@
 }
 
 #banner-continue-reservation {
-    @include display-flex(row, flex-end, center);
+    @include display-flex(row, flex-start, center);
+    margin-left:0.625rem;
     width:100%;
 }
 

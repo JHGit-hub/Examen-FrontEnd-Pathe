@@ -41,10 +41,11 @@
 }
 
 
-@media (min-width:1280px){
+@media (min-width:1300px){
     .filter-row .filter-bar{
         #filter-input {
             height: 55px;
+            font-size: 1.5rem;
         }
         img{
             width: 31px;

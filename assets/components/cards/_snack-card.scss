@@ -4,6 +4,8 @@
 
 .snack-selection{
     @include display-flex(column, flex-start, flex-start);
+    overflow-y: auto;
+    max-height: 450px;
     gap:0.875rem;
     .row-selection{
         @include display-flex(column, center, flex-start);
@@ -15,6 +17,7 @@
         }
         .snack-row{
             @include display-flex(row, center, center);
+            flex-wrap: wrap;
             gap:1rem;
             .snack-card{
                 @include display-flex(column, center, center);
@@ -61,7 +64,7 @@
     }
 }
 
-@media (min-width:1280px){
+@media (min-width:1300px){
     .snack-selection{
         .row-selection{
             h5{

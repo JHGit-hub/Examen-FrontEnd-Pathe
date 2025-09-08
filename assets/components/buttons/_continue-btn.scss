@@ -6,10 +6,12 @@
 .continue-btn{
     @include display-flex(row, center, center);
     background-color: rgb(27, 182, 42);
+    border: solid 1px;
     border-radius: 8px;
     padding: 0.5rem 1.5rem;
     gap: 1rem;
     width: fit-content;
+    cursor: pointer;
     span {
         @include display-flex(row, center, center);
         gap:1rem;
@@ -29,7 +31,7 @@
 }
 
 
-@media (min-width:1280px){
+@media (min-width:1300px){
     .continue-btn{
         span {
             font-size: 1.31rem;

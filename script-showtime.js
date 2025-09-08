@@ -96,9 +96,9 @@ fetch('../films.json')
                 //// image -> inclus dans divMovieCard
                 image.push(document.createElement('div'));
                 image[k].className = "movie-img";
-                image[k].innerHTML = `<a href ="${list[k].trailer}" alt="Bande annonce du film ${list[k].title}" target="_blank">
+                image[k].innerHTML = `<button onclick="showTrailer('${list[k].trailer}')" alt="Bande annonce du film ${list[k].title}" target="_blank">
                                         <img src="../assets/images/illustrations/${list[k].image}" alt="Affiche du film ${list[k].title}">
-                                    </a>`;
+                                    </button>`;
 
                 //// divMovieText -> inclus dans divMovieCard
                 divMovieText.push(document.createElement('div'));
@@ -306,7 +306,7 @@ fetch('../films.json')
             // affichage des films filtrés
             displayMoviesList(moviesListFiltered);
         }
-
+        
 
         ////// fonction poure reserver sa séance aprés avoir cliqué
         function reserveShowtime(){
@@ -354,3 +354,30 @@ fetch('../films.json')
         console.error('Erreur lors de la récupération des données :', error);
     });
     
+
+    ////// fonction d'affichage du trailer du film
+function showTrailer(url){
+    const trailerModal = document.getElementById("trailer-modal");
+    const backgroundModal = document.getElementById("modal-background");
+    trailerModal.innerHTML = `
+        <div class="trailer-content">
+            <div class="close-trailer">
+                <button class="cancel-btn" onclick="closeTrailer()">
+                    <img src="../assets/images/icons/cancel.svg" alt="fermer la vidéo">
+                </button>
+            </div>
+            <iframe width="560" height="315" src="${url}" frameborder="0" allowfullscreen></iframe>
+        </div>
+    `;
+    trailerModal.classList.remove("hidden");
+    backgroundModal.classList.remove("hidden");
+}
+
+function closeTrailer(){
+    const trailerModal = document.getElementById("trailer-modal");
+    const backgroundModal = document.getElementById("modal-background");
+    
+    trailerModal.classList.add("hidden");
+    backgroundModal.classList.add("hidden");
+    trailerModal.innerHTML = "";
+}

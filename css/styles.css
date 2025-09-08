@@ -54,7 +54,7 @@ a {
   text-decoration: none;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1300px) {
   h1 {
     font-size: 9rem;
   }
@@ -363,7 +363,7 @@ main {
   z-index: 1;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1300px) {
   .block-movie-selected .showtime-resume-description .showtime-resume-detail #showtime-resume-schedule p {
     font-size: 1.5rem;
   }
@@ -452,7 +452,7 @@ header {
   transform: scale(1.3);
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1300px) {
   .theater {
     grid-template-columns: repeat(19, minmax(30px, 1fr));
   }
@@ -485,7 +485,7 @@ header {
   box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.5);
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1300px) {
   .primary-btn {
     font-size: 1.96rem;
   }
@@ -558,7 +558,7 @@ header {
   outline-offset: 2px;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1300px) {
   .back-btn span, .back-btn a {
     font-size: 1.31rem;
   }
@@ -583,7 +583,7 @@ header {
   text-transform: capitalize;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1300px) {
   .filter-btn {
     width: 172px;
     height: 55px;
@@ -609,7 +609,7 @@ header {
   width: 21px;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1300px) {
   .backtotop {
     width: 66px;
     height: 66px;
@@ -634,7 +634,7 @@ header {
   font-size: 0.875rem;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1300px) {
   .cancel-btn span {
     font-size: 1.31rem;
   }
@@ -660,7 +660,7 @@ header {
   font-size: 0.875rem;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1300px) {
   .add-btn a {
     font-size: 1.31rem;
   }
@@ -671,10 +671,12 @@ header {
   justify-content: center;
   align-items: center;
   background-color: rgb(27, 182, 42);
+  border: solid 1px;
   border-radius: 8px;
   padding: 0.5rem 1.5rem;
   gap: 1rem;
   width: fit-content;
+  cursor: pointer;
 }
 .continue-btn span {
   display: flex;
@@ -696,7 +698,7 @@ header {
   box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.5);
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1300px) {
   .continue-btn span {
     font-size: 1.31rem;
   }
@@ -769,7 +771,7 @@ header {
   border-radius: 4px;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1300px) {
   .movie-card .movie-img img {
     width: 90px;
     height: 120px;
@@ -838,7 +840,7 @@ header {
   width: 14px;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1300px) {
   .showtime-row .showtime-card {
     display: flex;
     flex-direction: column;
@@ -865,6 +867,8 @@ header {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  overflow-y: auto;
+  max-height: 450px;
   gap: 0.875rem;
 }
 .snack-selection .row-selection {
@@ -884,6 +888,7 @@ header {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   gap: 1rem;
 }
 .snack-selection .row-selection .snack-row .snack-card {
@@ -934,7 +939,7 @@ header {
   color: #000000;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1300px) {
   .snack-selection .row-selection h5 {
     font-size: 1.5rem;
   }
@@ -966,9 +971,9 @@ header {
 .modal {
   position: fixed;
   width: 650px;
-  background-color: #ffffff;
+  background-color: #000000;
   border: solid 2px #FEB91E;
-  border-radius: 8px;
+  border-radius: 15px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -976,12 +981,19 @@ header {
   z-index: 1100;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
 }
+.modal .cancel-btn {
+  border-radius: 15px;
+  padding: 0.5rem;
+}
 .modal .trailer-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 2rem;
+}
+.modal .trailer-content iframe {
+  border-radius: 15px;
 }
 
 .modal-background {
@@ -1064,7 +1076,7 @@ header {
   text-decoration: underline;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1300px) {
   .breadcrumb a, .breadcrumb span {
     font-size: 1.125rem;
   }
@@ -1196,7 +1208,7 @@ header {
   width: 35px;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1300px) {
   .payment-section .payment-method .payment-row .accordion-body .payment-details p {
     font-size: 0.75rem;
   }
@@ -1236,8 +1248,9 @@ header {
 #banner-continue-reservation {
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
+  margin-left: 0.625rem;
   width: 100%;
 }
 
@@ -1334,7 +1347,7 @@ header {
   width: 81%;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1300px) {
   .select-price .cine-pass {
     top: 28%;
     left: 4%;
@@ -1409,9 +1422,10 @@ header {
   margin: 4rem 0;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1300px) {
   .filter-row .filter-bar #filter-input {
     height: 55px;
+    font-size: 1.5rem;
   }
   .filter-row .filter-bar img {
     width: 31px;
@@ -1506,7 +1520,7 @@ header {
   width: 34px;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1300px) {
   #free-seats p {
     font-size: 1.5rem;
   }
@@ -1636,7 +1650,7 @@ header {
   color: #6a6a6a;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1300px) {
   .section-resume-reservation .resume-reservation .resume-ticket h4 {
     font-size: 1.5rem;
   }

@@ -24,7 +24,7 @@ for( let i = 0 ; i < rows ; i++){
 
     // A chaque ligne, on créé un id et on l'ajoute au tableau
     for( let j = 1; j <= columns ; j++){
-        if(j !== 4 || j !== 16){
+        if(j !== 4 && j !== 16){
             allSeatId.push(`${rowLetter}${j}`);
         }
 

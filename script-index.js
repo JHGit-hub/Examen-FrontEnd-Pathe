@@ -38,7 +38,7 @@ function sliderBackground(){
 }
 
 // Affichage de la premiére slide
-slider.style.backgroundImage = `url( ${backgroundImg[0]})`;
+slider.style.backgroundImage = `url(${backgroundImg[0]})`;
 
 // Changement de slide toutes les 3 secondes
 setInterval(sliderBackground, 3000);
@@ -50,7 +50,7 @@ function cancelReservation(){
     // On vide les données du localStorage
     localStorage.clear();
     // On recharge la page d'acceuil
-    window.location.href = "../index.html";
+    window.location.href = "index.html";
 }
 
 // On écoute le click sur le bouton d'annulation
@@ -64,12 +64,19 @@ if(cancelBtn){
 let movieSelected = JSON.parse(localStorage.getItem("movieSelected"));
 
 const BannerContinueReservation = document.getElementById("banner-continue-reservation");
-// on verifie si moveiSelected existe
+// on verifie si movieSelected existe
 if(movieSelected){
-BannerContinueReservation.innerHTML = `<button class="continue-btn">
-                                            <span>Reprendre la reservation</span>
-                                            <img src="/assets/images/icons/arrow.png"
-                                                alt="flèche vers la reprise de la réservation des places de cinéma"
-                                                title="Reprendre la reservation des places de cinéma Pathé">
-                                        </button>`
+    BannerContinueReservation.innerHTML = `<button class="continue-btn" id="continue-btn">
+                                                <span>Reprendre la reservation</span>
+                                                <img src="/assets/images/icons/arrow.png"
+                                                    alt="flèche vers la reprise de la réservation des places de cinéma"
+                                                    title="Reprendre la reservation des places de cinéma Pathé">
+                                            </button>`
+    document.getElementById("continue-btn").addEventListener("click", continueReservation);
+}
+
+
+// Function reprise de la reservation
+function continueReservation(){
+    window.location.href = 'pages/seat-selection.html'
 }

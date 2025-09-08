@@ -44,7 +44,7 @@
     }
 }
 
-@media (min-width:1280px){
+@media (min-width:1300px){
     .showtime-row{
         .showtime-card{
             @include display-flex(column, flex-end, stretch);

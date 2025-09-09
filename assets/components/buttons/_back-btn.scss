@@ -24,9 +24,9 @@
         transform: rotate(180deg);
     }
 }
-.back-btn:focus {
-    outline: 2px solid #FEB91E; // bordure de couleur
-    outline-offset: 2px; // décalage de 2 px entre le bouton et la bordure
+
+.back-btn:hover{
+    box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.5);
 }
 
 @media (min-width:1300px){

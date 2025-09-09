@@ -16,6 +16,10 @@
     }
 }
 
+.cancel-btn:hover{
+    box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
 @media (min-width:1300px){
     .cancel-btn span{
         font-size:1.31rem;

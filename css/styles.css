@@ -532,6 +532,10 @@ header {
   color: #ffffff;
 }
 
+.secondary-btn:hover {
+  box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
 .tertiary-btn {
   display: flex;
   flex-direction: row;
@@ -545,6 +549,10 @@ header {
 }
 .tertiary-btn a {
   color: #ffffff;
+}
+
+.tertiary-btn:hover {
+  box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.5);
 }
 
 .back-btn {
@@ -575,9 +583,8 @@ header {
   transform: rotate(180deg);
 }
 
-.back-btn:focus {
-  outline: 2px solid #FEB91E;
-  outline-offset: 2px;
+.back-btn:hover {
+  box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.5);
 }
 
 @media (min-width: 1300px) {
@@ -631,6 +638,10 @@ header {
   width: 21px;
 }
 
+.backtotop-btn:hover {
+  box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
 @media (min-width: 1300px) {
   .backtotop {
     width: 66px;
@@ -654,6 +665,10 @@ header {
   color: #ffffff;
   font-family: "heebo-medium";
   font-size: 0.875rem;
+}
+
+.cancel-btn:hover {
+  box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.5);
 }
 
 @media (min-width: 1300px) {
@@ -680,6 +695,10 @@ header {
   color: #ffffff;
   font-family: "heebo-medium";
   font-size: 0.875rem;
+}
+
+.add-btn:hover {
+  box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.5);
 }
 
 @media (min-width: 1300px) {

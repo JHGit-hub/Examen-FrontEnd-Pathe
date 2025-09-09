@@ -18,6 +18,10 @@
     }
 }
 
+.add-btn:hover{
+    box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
 @media (min-width:1300px){
     .add-btn{
         a{

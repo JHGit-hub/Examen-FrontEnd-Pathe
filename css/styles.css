@@ -1,3 +1,4 @@
+@charset "UTF-8";
 h1 {
   font-family: "heebo-black";
   font-size: 6rem;
@@ -342,6 +343,27 @@ main {
 }
 .cart .footer-cart #continue-reservation img {
   width: 34px;
+}
+
+@keyframes rebond { /* @keyframes permet de décomposer l'animation en pls étapes */
+  0% {
+    transform: scale(1);
+  } /* état initial */
+  25% {
+    transform: scale(1.2);
+  }
+  50% {
+    transform: scale(0.8);
+  }
+  75% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  } /* retour état initial */
+}
+#cart-resume.rebond {
+  animation: rebond 0.5s;
 }
 
 #error-msg {
@@ -970,7 +992,6 @@ header {
     font-size: 0.75rem;
   }
 }
-/****** MODAL ******/
 .modal {
   position: fixed;
   width: 650px;

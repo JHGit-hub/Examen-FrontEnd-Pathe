@@ -129,6 +129,15 @@ fetch('../snack.json')
                     quantityDiv.textContent = currentQuantity + 1;
                     snackQuantity = snackQuantity + 1;
                     cartSnackResume();
+
+                    // effet rebond sur le panier
+                    const cartResume = document.getElementById("cart-resume");
+                    cartResume.classList.remove("rebond"); // enléve l'effet si en cours
+                    void cartResume.offsetWidth; // reforce le recalcul du style pour effet a chaque ajout dans le panier
+                    cartResume.classList.add("rebond"); // ajoute l'effet à nouveau
+
+
+
                 });
             }
         }

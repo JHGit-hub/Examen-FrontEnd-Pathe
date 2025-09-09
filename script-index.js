@@ -78,5 +78,5 @@ if(movieSelected){
 
 // Function reprise de la reservation
 function continueReservation(){
-    window.location.href = 'pages/seat-selection.html'
+    window.location.href = 'pages/seat_selection.html'
 }

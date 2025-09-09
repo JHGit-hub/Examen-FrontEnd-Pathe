@@ -15,15 +15,15 @@
     <main>
         <div class="container-fluid">
             <section class="block">
-                <div class="block-movie-selected" id="block-movie-selected">
+                <article class="block-movie-selected" id="block-movie-selected">
                     <div class="opacity-filter"></div>
                     <div class="breadcrumb-block">
-                        <div class="breadcrumb">
+                        <nav class="breadcrumb">
                             <a href="../index.html">Accueil</a> &gt; <a href="showtime.html">Choisir une séance</a> &gt;
                             <a href="seat_selection.html">Vos places</a> &gt; <a href="seat_resume.html">Tarifs</a> &gt;
                             <a href="select_snack.html">Snacks</a> &gt;
                             <span>Payement</span>
-                        </div>
+                        </nav>
                     </div>
                     <div class="logo-block">
                         <img src="../assets/images/icons/logo-icon.png" alt="logo des cinémas Pathé">
@@ -36,7 +36,7 @@
                             <div id="showtime-resume-schedule"></div>
                         </div>
                     </div>
-                </div>
+                </article>
                 <div class="block-selection">
                     <div class="header-block">
                         <div id="auditorium"></div>
@@ -56,14 +56,14 @@
                                 <h5>Choisir son mode de paiement</h5>
                                 <div class="payment-row">
                                     <button class="accordion-header">
-                                        <div class="payment-header">
-                                            <p>Carte Bancaire</p>
-                                            <div class="payment-icon">
+                                        <span class="payment-header">
+                                            <span>Carte Bancaire</span>
+                                            <span class="payment-icon">
                                                 <img src="../assets/images/logo/american-express.png" alt="Carte American Express">
                                                 <img src="../assets/images/logo/visa.png" alt="Carte Visa">
                                                 <img src="../assets/images/logo/mastercard.png" alt="Carte Mastercard">
-                                            </div>
-                                        </div>
+                                            </span>
+                                        </span>
                                     </button>
                                     <form class="accordion-body hidden" id="payment-cb">
                                         <div class="payment-header">
@@ -77,7 +77,7 @@
                                         <div class="payment-details">
                                             <div class="label-form">
                                                 <p>Numéro de carte</p>
-                                                <input type="text" id="card-number"placeholder="1234 5678 9012 3456">
+                                                <input type="text" id="card-number" placeholder="1234 5678 9012 3456">
                                             </div>
                                             <div class="crypto-card">
                                                 <div class="label-form">
@@ -94,12 +94,12 @@
                                 </div>
                                 <div class="payment-row">
                                     <button class="accordion-header">
-                                        <div class="payment-header">
-                                            <p>Google Pay</p>
-                                            <div class="payment-icon">
+                                        <span class="payment-header">
+                                            <span>Google Pay</span>
+                                            <span class="payment-icon">
                                                 <img src="../assets/images/logo/google-pay.png" alt="Google Pay">
-                                            </div>
-                                        </div>
+                                            </span>
+                                        </span>
                                     </button>
                                     <form class="accordion-body hidden" id="payment-gpay">
                                         <div class="payment-header">
@@ -135,7 +135,7 @@
                                     <span id="total-cart"></span>
                                 </div>
                                 <button id="continue-reservation">
-                                    <p>Continuer</p>
+                                    <span>Continuer</span>
                                     <img src="../assets/images/icons/right-arrow.png" alt="flèche de validation">
                                 </button>
                             </div>

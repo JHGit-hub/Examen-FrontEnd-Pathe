@@ -335,7 +335,7 @@ main {
   width: 32%;
   cursor: pointer;
 }
-.cart .footer-cart #continue-reservation p {
+.cart .footer-cart #continue-reservation span {
   font-family: "heebo-extrabold";
   font-size: 1.25rem;
   color: #181818;
@@ -401,7 +401,7 @@ main {
   .cart .footer-cart .resume-total span {
     font-size: 2.06rem;
   }
-  .cart .footer-cart #continue-reservation p {
+  .cart .footer-cart #continue-reservation span {
     font-size: 1.875rem;
   }
   .cart .footer-cart #continue-reservation img {
@@ -714,7 +714,10 @@ header {
   align-items: center;
   gap: 0.625rem;
 }
-.movie-card .movie-img img {
+.movie-card .movie-img button {
+  background-color: #000000;
+}
+.movie-card .movie-img button img {
   width: 60px;
   height: 80px;
 }
@@ -1192,7 +1195,7 @@ header {
   justify-content: space-between;
   align-items: center;
 }
-.payment-header p {
+.payment-header span {
   font-family: "heebo-regular";
   font-size: 1rem;
   color: #000000;
@@ -1215,7 +1218,7 @@ header {
   .payment-section .payment-method .payment-row .accordion-body .payment-details input {
     font-size: 0.9rem;
   }
-  .payment-header p {
+  .payment-header span {
     font-size: 1.5rem;
   }
   .payment-header .payment-icon img {

@@ -90,15 +90,15 @@ function validatePayment(){
         const cryptoCard = document.getElementById("crypto-card").value.trim();
 
         if(!cardNumberRegex.test(cardNumber)){
-            errorDiv.innerHTML += "<p>numéro de Carte bleu Incorrect</p>";
+            errorDiv.innerHTML += "<p>numéro de Carte bancaire Incorrect</p>";
             hasError = true;
         }
         if(!dateCardRegex.test(dateCard)){
-            errorDiv.innerHTML += "<p>date de Carte bleu Incorrect</p>";
+            errorDiv.innerHTML += "<p>date d'expiraion Incorrect</p>";
             hasError = true;
         }
         if(!cryptoCardRegex.test(cryptoCard)){
-            errorDiv.innerHTML += "<p>cryptogramme de Carte bleu Incorrect</p>";
+            errorDiv.innerHTML += "<p>cryptogramme Incorrect</p>";
             hasError = true;
         }
     }

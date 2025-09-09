@@ -78,7 +78,7 @@
 
 .payment-header{
     @include display-flex(row, space-between, center);
-    p{
+    span{
         font-family: "heebo-regular";
         font-size:1rem;
         color:#000000;
@@ -102,7 +102,7 @@
         }
     }
     .payment-header{
-        p{
+        span{
             font-size:1.5rem;
         }
         .payment-icon img{

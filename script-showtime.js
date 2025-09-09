@@ -366,7 +366,7 @@ function showTrailer(url){
                     <img src="../assets/images/icons/cancel.svg" alt="fermer la vidéo">
                 </button>
             </div>
-            <iframe width="560" height="315" src="${url}" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="${url}" allowfullscreen></iframe>
         </div>
     `;
     trailerModal.classList.remove("hidden");

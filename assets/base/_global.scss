@@ -203,7 +203,7 @@ main{
             background-color: $primary-color;
             width:32%;
             cursor: pointer;
-            p{
+            span{
                 font-family:"heebo-extrabold";
                 font-size: 1.25rem;
                 color: #181818;
@@ -286,7 +286,7 @@ main{
                 }
             }
             #continue-reservation{
-                p{
+                span{
                     font-size: 1.875rem;
                 }
                 img{

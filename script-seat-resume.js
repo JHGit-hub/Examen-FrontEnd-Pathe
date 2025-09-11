@@ -1,3 +1,30 @@
+/**
+ * --------------------------------------------------------------
+ * script-seat-resume.js
+ * 
+ * Gère la page récapitulative des tickets juste après la sélection des sièges.
+ * Permet à l'utilisateur de choisir la répartition des tarifs pour chaque place, d'obtenir un récapitulatif du panier, 
+ * et de valider avant de passer à la sélection des snacks.
+ * 
+ * Fonctionnalités principales :
+ *  - Récupération des sièges sélectionnés et des tarifs précédemment choisis (si existants) depuis le localStorage.
+ *  - Affichage automatique des quantités de tickets par type (plein tarif, matin, moins de 14 ans) selon la sélection.
+ *  - Gestion interactive des quantités de tickets avec boutons + et - pour chaque tarif, avec mise à jour en temps réel.
+ *  - Empêche l'utilisateur de sélectionner plus de tickets que de sièges choisis.
+ *  - Calcul dynamique et affichage du récapitulatif du panier : quantités, sous-totaux, et total général.
+ *  - Validation du panier : l'utilisateur doit obligatoirement choisir autant de tarifs que de sièges.
+ *  - Sauvegarde des tarifs dans le localStorage, puis redirection vers l'étape suivante (sélection des snacks).
+ * 
+ * Structure & logiques principales :
+ *  - Synchronisation automatique entre la sélection des tarifs et le nombre de sièges.
+ *  - Affichage d'un message d'erreur si l'utilisateur tente de dépasser la quantité de tickets autorisée
+ *  - Utilisation du localStorage pour permettre le retour en arrière sans perte de données.
+ *  - Affichage responsive du panier et des totaux pour une expérience utilisateur fluide.
+ * 
+ * 
+ * --------------------------------------------------------------
+ */
+
 //////////////////// Récupération des données des places selectionnées
 const selectedSeats = JSON.parse(localStorage.getItem("selectedSeats"));
 const ticketsQuantityToBuy = selectedSeats.length;

@@ -1,3 +1,19 @@
+/**
+ * ------------------------------------------------------------------
+ * script-index.js
+ * 
+ * Script principal de la page d'accueil du site de réservation de cinéma.
+ * 
+ * Fonctionnalités principales :
+ *  - Slider automatique d'images en fond (bannières de films) avec effet de fondu.
+ *  - Annulation de la réservation (réinitialisation du localStorage et retour à l'accueil).
+ *  - Affichage conditionnel du bouton "Reprendre la réservation" si une réservation existe en cours,
+ *    permettant à l'utilisateur de reprendre la sélection des places.
+ * 
+ * ------------------------------------------------------------------
+ */
+
+
 //////////////////// Slider de la page index
 
 // création du tableau contenant les url des images du background pour le slider

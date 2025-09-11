@@ -1,3 +1,31 @@
+/**
+ * --------------------------------------------------------------
+ * script-select-payment.js
+ * 
+ * Gère la page de paiement et de validation finale de la commande.
+ * Permet à l'utilisateur de visualiser le total du panier (places + snacks), de choisir un mode de paiement,
+ * de saisir ses informations de paiement, et de valider la commande avant le récapitulatif final.
+ * 
+ * Fonctionnalités principales :
+ *  - Récupération des données des billets (`selectedTickets`) et des snacks (`selectedSnacks`) depuis le localStorage.
+ *  - Calcul du sous-total des billets, du sous-total des snacks, et du total général du panier.
+ *  - Affichage dynamique du total dans la page.
+ *  - Gestion interactive des accordéons pour le choix du mode de paiement (CB ou Google Pay) : ouverture/fermeture fluide.
+ *  - Validation des champs du formulaire en fonction du mode choisi (numéro de carte, date d'expiration, cryptogramme, mail Google Pay...).
+ *  - Affichage des erreurs contextuelles en cas de champ incorrect ou de mode de paiement non sélectionné.
+ *  - Enregistrement du total du panier dans le localStorage.
+ *  - Redirection vers la page de récapitulatif de la réservation en cas de validation réussie.
+ * 
+ * Structure & logiques principales :
+ *  - Synchronisation automatique entre les données du panier et l'affichage du total.
+ *  - Gestion d'accordéons pour n'afficher qu'un seul mode de paiement à la fois.
+ *  - Empêche la validation tant que toutes les informations obligatoires ne sont pas bien renseignées.
+ *  - Messages d'erreur clairs, affichés temporairement à l'utilisateur.
+ *  - Utilisation du localStorage pour conserver la cohérence de la commande à chaque étape.
+ * 
+ * --------------------------------------------------------------
+ */
+
 //////////////////// On récupére les données du localStorage
 const detailSelectedTickets = JSON.parse(localStorage.getItem("selectedTickets"));
 const detailSelectedSnacks = JSON.parse(localStorage.getItem("selectedSnacks"));

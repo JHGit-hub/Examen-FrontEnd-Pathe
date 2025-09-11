@@ -1,3 +1,32 @@
+/**
+ * --------------------------------------------------------------
+ * script-select-snack.js
+ * 
+ * Gère la page de sélection et de récapitulatif des snacks au cinéma.
+ * Permet à l'utilisateur de choisir des snacks (formules, pop-corn/sucreries, boissons), 
+ * de les ajouter/modifier dans le panier, et de valider avant de passer au paiement.
+ * 
+ * Fonctionnalités principales :
+ *  - Récupération des tarifs de tickets sélectionnés à l'étape précédente (localStorage).
+ *  - Chargement dynamique du catalogue des snacks depuis un fichier JSON (snack.json).
+ *  - Affichage dynamique des snacks selon leur catégorie, sous forme de cartes interactives.
+ *  - Gestion de la quantité de chaque snack (boutons + et -) et affichage instantané dans le panier.
+ *  - Affichage des snacks précédemment sélectionnés si l'utilisateur revient sur la page.
+ *  - Mise à jour en temps réel du récapitulatif du panier : détail de chaque article/snack, quantités, sous-totaux, et total général.
+ *  - Possibilité de supprimer un snack directement depuis le panier (icône poubelle).
+ *  - Enregistrement automatique du panier de snacks dans le localStorage à chaque modification.
+ *  - Validation de la sélection de snacks et redirection vers la page de paiement.
+ * 
+ * Structure & logiques principales :
+ *  - Synchronisation automatique entre le catalogue de snacks, les quantités affichées et le panier.
+ *  - Affichage adapté des anciens choix de snacks pour permettre un retour en arrière sans perte.
+ *  - Gestion d'effets visuels (effet rebond sur le panier lors de l'ajout d'un snack).
+ *  - Séparation claire entre gestion du catalogue, gestion du panier, et validation de la commande.
+ *  - Utilisation du localStorage pour conserver tous les choix de l'utilisateur à chaque étape.
+ * 
+ * --------------------------------------------------------------
+ */
+
 //////////////////// On récupére les données du localStorage
 const detailSelectedTickets = JSON.parse(localStorage.getItem("selectedTickets"));
 

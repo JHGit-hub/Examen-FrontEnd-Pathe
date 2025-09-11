@@ -1,3 +1,30 @@
+/**
+ * --------------------------------------------------------------
+ * script-movie-resume.js
+ * 
+ * Gère l'affichage détaillé du film et de la séance sélectionnés.
+ * Permet à l'utilisateur de visualiser toutes les infos importantes sur la séance choisie et de revenir ou d'annuler la réservation.
+ * 
+ * Fonctionnalités principales :
+ *  - Récupération des données du film choisi et de la séance depuis le localStorage (`movieSelected`).
+ *  - Affichage dynamique :
+ *      - Image de fond et affiche du film.
+ *      - Titre du film.
+ *      - Horaire de la séance, langue (VF ou VOST) et heure de fin prévue.
+ *      - Numéro de salle et pictogramme d'accessibilité si la salle est accessible.
+ *  - Gestion des boutons d'annulation et de retour :
+ *      - Annulation de la réservation : vide tout le localStorage et retourne à l'accueil.
+ *      - Retour à la sélection de séance : vide le localStorage et retourne à la page précédente.
+ * 
+ * Structure & logiques principales :
+ *  - Injection dynamique des données du film dans le DOM pour une expérience utilisateur immersive.
+ *  - Contrôle de l’accessibilité (pictogramme si la salle l’est).
+ *  - Nettoyage du localStorage pour éviter toute persistance de données lors d'un retour ou d'une annulation.
+ *  - Navigation fluide et sécurisée entre les étapes du tunnel de réservation.
+ * 
+ * --------------------------------------------------------------
+ */
+
 //////////////////// Récupération des données du film et de la séance
 const movieSelected = JSON.parse(localStorage.getItem("movieSelected"));
 

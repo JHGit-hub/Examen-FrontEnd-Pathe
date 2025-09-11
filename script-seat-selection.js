@@ -1,3 +1,27 @@
+/**
+ * --------------------------------------------------------------
+ * script-seat-selection.js
+ * 
+ * Gère l'affichage et la sélection des places dans le plan de salle pour la réservation de cinéma.
+ * 
+ * Fonctionnalités principales :
+ *  - Affiche le nombre de places libres pour la séance sélectionnée.
+ *  - Génère dynamiquement le plan de salle, en indiquant les sièges disponibles et occupés.
+ *  - Permet à l'utilisateur de sélectionner ou désélectionner des sièges, avec visualisation en temps réel (icônes et liste).
+ *  - Enregistre la sélection dans le localStorage pour la suite de la réservation.
+ *  - Valide la sélection : si aucun siège n'est choisi, affiche un message d'erreur temporaire.
+ *  - Affiche les sièges déjà sélectionnés si l'utilisateur revient sur cette page.
+ * 
+ * Structure & logiques principales :
+ *  - Calcul du nombre de sièges occupés et génération aléatoire de leur position.
+ *  - Génération HTML de chaque siège, gestion des classes CSS et des icônes selon l'état (disponible, occupé, sélectionné...).
+ *  - Interaction utilisateur : clic sur les sièges, validation de sélection, affichage dynamique des résultats.
+ *  - Utilisation du localStorage pour la persistance de la sélection.
+ * 
+ * --------------------------------------------------------------
+ */
+
+
 /////////////////// Affichage du nombre de place libre
 let freeSeats = document.getElementById("free-seats");
 freeSeats.innerHTML = `<p>${movieSelected.showtime.libres} places libres</p>`;

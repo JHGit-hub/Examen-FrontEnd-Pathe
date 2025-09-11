@@ -1,3 +1,26 @@
+/**
+ * --------------------------------------------------------------
+ * script-showtime.js
+ * 
+ * Gère l'affichage dynamique du catalogue des films à l'affiche
+ * ainsi que leurs séances, avec filtres interactifs et réservation.
+ * 
+ * Fonctionnalités principales :
+ *  - Récupère la liste des films et séances depuis un fichier JSON.
+ *  - Affiche dynamiquement chaque film sous forme de "carte" avec toutes ses infos et ses séances.
+ *  - Filtrage en temps réel par genre, format, langue, ou mot-clé (titre).
+ *  - Réservation d'une séance : sauvegarde du choix dans le localStorage et redirection vers la sélection des places.
+ *  - Affichage et fermeture d'une bande-annonce dans une modale.
+ *  - Ajoute une animation personnalisée du pointeur lors du survol des séances.
+ *  - Gestion des erreurs lors du chargement des données.
+ * 
+ * Structure & logiques principales :
+ *  - Les séances sont affichées selon leurs caractéristiques (format, langue, accessibilité, etc).
+ *  - Chaque bouton de séance permet de procéder à la réservation du film choisi.
+ * --------------------------------------------------------------
+ */
+
+
 /////// Gestion du catalogue des films à l'affiche et leurs séances
 
 // Import des données depuis un fichier JSON
@@ -246,9 +269,6 @@ fetch('../films.json')
                 });
             });
 
-
-
-
         }
 
 
@@ -319,7 +339,7 @@ fetch('../films.json')
             const showtime = showtimeId.substring(hyphen +1); // on extrait l'horaire en partant du "-" jusqu'à la fin de la chaine
 
             // on cherche le film correspondant
-            const movieReservation = moviesList.find(movie => movie.titre === movieTitle); // renvoi le premiére ligne correspondante
+            const movieReservation = moviesList.find(movie => movie.titre === movieTitle); // renvoi la premiére ligne correspondante
 
             // on cherche la séance correspondante
             const showtimeReservation = movieReservation.séances.find(séance => séance.horaire === showtime);
